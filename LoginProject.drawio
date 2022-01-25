@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-01-25T20:13:12.794Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 OPR/82.0.4227.50" etag="XP6MfE4knAI934TQlacA" version="16.4.5" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-01-25T20:14:37.364Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 OPR/82.0.4227.50" etag="YgIjd0FNz9ho62BoGA12" version="16.4.5" type="github" pages="2">
   <diagram name="Neuen Mitarbeiter" id="0783ab3e-0a74-02c8-0abd-f7b4e66b4bec">
     <mxGraphModel dx="1625" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1000" background="none" math="0" shadow="0">
       <root>
@@ -175,7 +175,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="73zamSfePNhDHKz6eoHx" name="Neue Qualifikation">
-    <mxGraphModel dx="1315" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="750" pageHeight="1480" math="0" shadow="0">
+    <mxGraphModel dx="1841" dy="1060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="750" pageHeight="1480" math="0" shadow="0">
       <root>
         <mxCell id="ZzKBu_bhMKAa4F417rku-0" />
         <mxCell id="ZzKBu_bhMKAa4F417rku-1" parent="ZzKBu_bhMKAa4F417rku-0" />
@@ -252,7 +252,7 @@
           <mxGeometry x="70" y="1130" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Vi5x0xyYKEilxlqi2qiz-33" value="Press Save" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="_WWlci8IYqeo6nB2At52-21">
-          <mxGeometry x="70" y="1280" width="120" height="60" as="geometry" />
+          <mxGeometry x="70" y="1250" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="-EIH_KEz9S7K7HFv5PgT-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="_WWlci8IYqeo6nB2At52-21" source="-EIH_KEz9S7K7HFv5PgT-7" target="1ZCvxc8rqXZogKr1J-pO-6">
           <mxGeometry relative="1" as="geometry" />
@@ -401,8 +401,8 @@
         <mxCell id="Vi5x0xyYKEilxlqi2qiz-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="_WWlci8IYqeo6nB2At52-0" source="Vi5x0xyYKEilxlqi2qiz-33" target="-EIH_KEz9S7K7HFv5PgT-22">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="160" y="1380" />
-              <mxPoint x="230" y="1380" />
+              <mxPoint x="160" y="1360" />
+              <mxPoint x="230" y="1360" />
               <mxPoint x="230" y="1365" />
             </Array>
           </mxGeometry>
