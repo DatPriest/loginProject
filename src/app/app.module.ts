@@ -2,12 +2,14 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import { LoginViewLightComponent } from './component/login-view-light/login-view-light.component';
+import { LoginViewComponent } from './component/login-view/login-view.component';
+import { EmployeeViewComponent } from './component/employee-view/employee-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginViewLightComponent
+    LoginViewComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,
