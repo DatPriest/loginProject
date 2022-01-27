@@ -5,14 +5,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { LoginViewComponent } from './component/login-view/login-view.component';
 import { EmployeeViewComponent } from './component/employee-view/employee-view.component';
 import { EmployeeDetailViewComponent } from './component/employee-detail-view/employee-detail-view.component';
-
+import { EmployeeCreationViewComponent } from './component/employee-creation-view/employee-creation-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginViewComponent,
     EmployeeViewComponent,
-    EmployeeDetailViewComponent
+    EmployeeDetailViewComponent,
+    EmployeeCreationViewComponent
   ],
   imports: [
     BrowserModule,
