@@ -8,7 +8,6 @@ import { Employee } from '../model/Employee';
 import { BearerTokenHolderService } from './bearer-token-holder.service';
 import { DatabaseConnectorService } from './database-connector.service';
 
-
 @Injectable({
   providedIn: 'root'
 })

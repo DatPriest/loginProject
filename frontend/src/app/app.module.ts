@@ -7,15 +7,15 @@ import { EmployeeViewComponent } from './component/employee-view/employee-view.c
 import { BearerTokenHolderService } from './service/bearer-token-holder.service';
 import { EmployeeService } from './service/employee.service';
 import { EmployeeDetailViewComponent } from './component/employee-detail-view/employee-detail-view.component';
-
+import { EmployeeCreationViewComponent } from './component/employee-creation-view/employee-creation-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginViewComponent,
     EmployeeViewComponent,
-    EmployeeComponent,
     EmployeeDetailViewComponent
+    EmployeeCreationViewComponent
   ],
   imports: [
     BrowserModule,
