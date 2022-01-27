@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Sequelize } from 'sequelize';
+import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseConnectorService {
   constructor() {
-  const sequelize = new Sequelize('postgres');
 
     /*this.pool = new Pool ({
       user: "employee",
