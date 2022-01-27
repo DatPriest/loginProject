@@ -12,6 +12,11 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   employees$ : Observable<Employee[]> = of([]);
 
+  employees$ : Employee[] = [];
+  constructor(private employeeService: EmployeeService) {
+    this.employeeService.employees$.subscribe(data => this.employees$ = data);
+    console.log(this.employees$);
+  }
 
   constructor(private employeeService: EmployeeService) {
     this.employees$ = employeeService.employees$;
