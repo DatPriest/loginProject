@@ -24,6 +24,7 @@ export class BearerTokenHolderService {
     .append("Content-Type", "application/x-www-form-urlencoded")
     .append("Access-Control-Allow-Origin", "*")
     .append("Access-Control-Allow-Headers", "x-requested-with, Content-Type")
+    .append("Authorization", "grant_type=password&client_id=employee-management-service&username=user&password=test")
 
 
     console.log("starting bearer request")

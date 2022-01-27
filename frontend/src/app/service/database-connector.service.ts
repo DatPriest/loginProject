@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Pool, PoolClient } from 'pg';
-
+import { Sequelize } from 'sequelize';
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseConnectorService {
-  private pool : Pool;
   constructor() {
-    this.pool = new Pool ({
+  const sequelize = new Sequelize('postgres');
+
+    /*this.pool = new Pool ({
       user: "employee",
       host: "localhost",
       database: "employee_db",
       password: "secret",
       port: 5432
     })
-    this.pool.on('error', (err, client) => {
+    /*this.pool.on('error', (err, client) => {
       console.error("Unexpected Error:", err);
-    });
+    });*/
   }
 }
