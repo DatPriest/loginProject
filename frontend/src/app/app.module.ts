@@ -6,6 +6,7 @@ import { LoginViewComponent } from './component/login-view/login-view.component'
 import { EmployeeViewComponent } from './component/employee-view/employee-view.component';
 import { EmployeeDetailViewComponent } from './component/employee-detail-view/employee-detail-view.component';
 import { EmployeeCreationViewComponent } from './component/employee-creation-view/employee-creation-view.component';
+import { QualificationViewComponent } from './component/qualification-view/qualification-view.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { EmployeeCreationViewComponent } from './component/employee-creation-vie
     LoginViewComponent,
     EmployeeViewComponent,
     EmployeeDetailViewComponent,
-    EmployeeCreationViewComponent
+    EmployeeCreationViewComponent,
+    QualificationViewComponent
   ],
   imports: [
     BrowserModule,
