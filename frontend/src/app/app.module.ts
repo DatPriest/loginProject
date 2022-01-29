@@ -15,11 +15,13 @@ import { EmployeeService } from './service/employee.service';
     LoginViewComponent,
     EmployeeViewComponent,
     EmployeeComponent,
-
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BearerTokenHolderService, EmployeeService],
   bootstrap: [AppComponent]

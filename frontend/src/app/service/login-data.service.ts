@@ -12,7 +12,8 @@ export class LoginDataService {
   }
   registerUser(User : User){
     this.Users.push(User);
-    alert("successfully registered")
+
+
   }
 
 
