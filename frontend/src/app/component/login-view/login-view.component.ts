@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AppComponent} from "../../app.component";
-import {User} from "../../model/User";
+import { AppComponent } from "../../app.component";
+import { User } from "../../model/User";
 import { Router} from "@angular/router";
 import { HttpClient} from "@angular/common/http";
-import { FormBuilder, FormGroup, NgForm} from "@angular/forms";
-import { BearerTokenHolderService} from "../../service/bearer-token-holder.service";
+import { FormBuilder, FormGroup, NgForm } from "@angular/forms";
+import { BearerTokenHolderService } from "../../service/bearer-token-holder.service";
 import { AuthenticationService } from "../../service/authentication/authentication.service";
 
 
@@ -14,16 +14,6 @@ import { AuthenticationService } from "../../service/authentication/authenticati
   styleUrls: ['./login-view.component.css']
 })
 export class LoginViewComponent implements OnInit {
-
-  // constructor(private app: AppComponent) { }
-
-  //  login(): void {
-  //    this.app.index = 1;
-  //  }
-  // //
-  //  register(): void {
-  //    this.app.index = 1;
-  //  }
 
   form : FormGroup;
   signupForm!:FormGroup;
@@ -41,12 +31,11 @@ export class LoginViewComponent implements OnInit {
       password: ''
 
     });
-    //this.User = new Users(null, null, null);
 
   }
 
+
   ErrorWindow() {
-    //this.app.Loginfailed = "Penis lol!"
     if (this.authenticationService.isAuthenticated == false) {
       return true;
     } else {
@@ -67,16 +56,5 @@ export class LoginViewComponent implements OnInit {
     this.app.user = signInData;
 
   }
-  /*save() {
-    this.loginDataService.registerUser(this.User);
-  }*/
-  /*
-  register() : void {
-    this.http.post('http://localhost:8000/api/register',{}).subscribe(() =>this.router.navigate(['/register']));
-  }
-  //change(event) {
-    alert(event.target.value);
-  }*/
-
 
 }
