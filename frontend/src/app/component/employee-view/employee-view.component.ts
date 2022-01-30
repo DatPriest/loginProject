@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Employee } from 'src/app/model/Employee';
 import { EmployeeService } from 'src/app/service/employee.service';
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'app-employee-view',
@@ -12,9 +13,24 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   employees$ : Observable<Employee[]> = of([]);
 
-  employees$ : Employee[] = [];
-  constructor(private employeeService: EmployeeService) {
-    this.employeeService.employees$.subscribe(data => this.employees$ = data);
+  menuEmployee(): void {
+    this.app.index = 1;
+  }
+
+  menuQualification(): void {
+    this.app.index = 4;
+  }
+
+  logout(): void {
+    this.app.index = 0;
+  }
+
+  addEmployee(): void {
+    this.app.index = 3;
+  }
+
+  detailEmployee(): void {
+    this.app.index = 2;
   }
 
   constructor(private employeeService: EmployeeService) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-qualification-detail-view',
@@ -7,7 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QualificationDetailViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private app: AppComponent) { }
+
+  menuEmployee(): void {
+    this.app.index = 1;
+  }
+
+  menuQualification(): void {
+    this.app.index = 4;
+  }
+
+  logout(): void {
+    this.app.index = 0;
+  }
+
+  backQualification(): void {
+    this.app.index = 1;
+  }
+
+  deleteQualification(): void {
+    this.app.index = 1;
+  }
 
   ngOnInit(): void {
   }

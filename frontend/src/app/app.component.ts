@@ -7,11 +7,12 @@ import { BearerTokenHolderService } from './service/bearer-token-holder.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
+  index: number = 0;
   constructor(private bearer: BearerTokenHolderService) {
 
   }
 
   ngOnInit(): void {
   }
+
 }
