@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-login-view',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private app: AppComponent) { }
+
+  login(): void {
+    this.app.index = 1;
+  }
+
+  register(): void {
+    this.app.index = 1;
+  }
 
   ngOnInit(): void {
   }

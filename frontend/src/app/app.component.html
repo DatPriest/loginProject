@@ -1,11 +1,27 @@
-<app-login-view></app-login-view>
-<!--<app-employee-view></app-employee-view>-->
-<!--<app-employee-detail-view></app-employee-detail-view>-->
-<!--<app-employee-creation-view></app-employee-creation-view>-->
-<!--<app-qualification-view></app-qualification-view>-->
-<!--<app-qualification-creation-view></app-qualification-creation-view>-->
-<!--<app-qualification-detail-view></app-qualification-detail-view>-->
+<div *ngIf="index == 0">
+  <app-login-view></app-login-view>
+</div>
 
+<div *ngIf="index == 1">
+  <app-employee-view></app-employee-view>
+</div>
 
+<div *ngIf="index == 2">
+  <app-employee-detail-view></app-employee-detail-view>
+</div>
 
-<!--<app-frontend-ui></app-frontend-ui>-->
+<div *ngIf="index == 3">
+  <app-employee-creation-view></app-employee-creation-view>
+</div>
+
+<div *ngIf="index == 4">
+  <app-qualification-view></app-qualification-view>
+</div>
+
+<div *ngIf="index == 5">
+  <app-qualification-creation-view></app-qualification-creation-view>
+</div>
+
+<div *ngIf="index == 6">
+  <app-qualification-detail-view></app-qualification-detail-view>
+</div>

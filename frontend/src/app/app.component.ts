@@ -11,8 +11,8 @@ import { EmployeeService } from './service/employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  index: number = 0;
 
-  constructor() {
+  constructor() { }
 
-  }
 }

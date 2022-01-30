@@ -9,7 +9,6 @@ import { EmployeeCreationViewComponent } from './component/employee-creation-vie
 import { QualificationViewComponent } from './component/qualification-view/qualification-view.component';
 import { QualificationCreationViewComponent } from './component/qualification-creation-view/qualification-creation-view.component';
 import { QualificationDetailViewComponent } from './component/qualification-detail-view/qualification-detail-view.component';
-import { FrontendUIComponent } from './component/frontend-ui/frontend-ui.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +19,13 @@ import { FrontendUIComponent } from './component/frontend-ui/frontend-ui.compone
     EmployeeCreationViewComponent,
     QualificationViewComponent,
     QualificationCreationViewComponent,
-    QualificationDetailViewComponent,
-    FrontendUIComponent
+    QualificationDetailViewComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
