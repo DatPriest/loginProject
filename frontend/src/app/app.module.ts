@@ -5,20 +5,23 @@ import { HttpClientModule } from "@angular/common/http";
 import { EmployeeComponent } from './component/employee/employee.component';
 import { LoginViewComponent } from './component/login-view/login-view.component';
 import { EmployeeViewComponent } from './component/employee-view/employee-view.component';
+import { BearerTokenHolderService } from './service/bearer-token-holder.service';
+import { EmployeeService } from './service/employee.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
     LoginViewComponent,
-    EmployeeViewComponent
+    EmployeeViewComponent,
+    EmployeeComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [BearerTokenHolderService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

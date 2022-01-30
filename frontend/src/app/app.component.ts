@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Employee } from './model/Employee';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
@@ -10,9 +10,12 @@ import { EmployeeService } from './service/employee.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  constructor() {
+  constructor(private bearer: BearerTokenHolderService) {
 
+  }
+
+  ngOnInit(): void {
   }
 }

@@ -1,6 +1,6 @@
 {
   "/backend": {
-    "target": "http://localhost:8089/employees",
+    "target": "https://localhost:8089/employees",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
@@ -9,7 +9,7 @@
     "changeOrigin": true
   },
   "/bearer": {
-    "target": "http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token",
+    "target": "http://authproxy.szut.dev/",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
