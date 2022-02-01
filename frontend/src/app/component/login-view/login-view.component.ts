@@ -20,7 +20,6 @@ export class LoginViewComponent implements OnInit {
 
   constructor(
     public app: AppComponent,
-    private kc: BearerTokenHolderService,
     private authenticationService: AuthenticationService,
     private router : Router,
     private http: HttpClient,
