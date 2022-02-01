@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Employee } from 'src/app/model/Employee';
 import { EmployeeService } from 'src/app/service/employee.service';
+import {AuthenticationService} from "src/app/service/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-employee-view',
@@ -12,9 +14,18 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   employees$ : Observable<Employee[]> = of([]);
 
+  constructor(private authentifcationservice: AuthenticationService, private router: Router) {
+
+  }
 
   constructor(private employeeService: EmployeeService) {
     this.employees$ = employeeService.employees$;
+  }
+  isAuth(): boolean{
+   return this.authentifcationservice.isAuthenticated;
+  }
+  logout(){
+    this.authentifcationservice.logout();
   }
 
 

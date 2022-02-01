@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
+import {BearerTokenHolderService} from "../../service/bearer-token-holder.service";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginViewComponent implements OnInit {
   form : FormGroup;
   signupForm!:FormGroup
 
-  constructor(private authenticationService: AuthenticationService, private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
+  constructor(private kc: BearerTokenHolderService,private authenticationService: AuthenticationService, private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       name: '',
