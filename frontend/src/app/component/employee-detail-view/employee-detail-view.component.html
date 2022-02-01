@@ -37,36 +37,34 @@
     </div>
   </header>
   <body>
-    <div class="row">
-      <div class="col-md-4 col-md-2">
-        <div class="p-">
-          <div class="container-fluid">
-            <p><font size="6" >Last name:</font></p>
-            <p><font size="6">First name:</font></p>
-            <p><font size="6">Street:</font></p>
-            <p><font size="6">Postcode:</font></p>
-            <p><font size="6">City:</font></p>
-            <p><font size="6">Phone:</font></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-md-2">
-        <div class="p-5">
-          <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 col-md-2">
+          <div class="p-5">
             <ng-container>
-              <p><font size="6">Bullwinkel</font></p>
-              <p><font size="6">Lukas</font></p>
-              <p><font size="6">Malerstraße 3</font></p>
-              <p><font size="6">28207</font></p>
-              <p><font size="6">Bremen</font></p>
-              <p><font size="6">01528188936</font></p>
+              <p><font size="6" >Last name:</font></p>
+              <p><font size="6">First name:</font></p>
+              <p><font size="6">Street:</font></p>
+              <p><font size="6">Postcode:</font></p>
+              <p><font size="6">City:</font></p>
+              <p><font size="6">Phone:</font></p>
             </ng-container>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 col-md-2">
-        <div class="p-5">
-          <div class="container-fluid">
+        <div class="col-md-4 col-md-2">
+          <div class="p-5">
+              <ng-container>
+                <p><font size="6">Bullwinkel</font></p>
+                <p><font size="6">Lukas</font></p>
+                <p><font size="6">Malerstraße 3</font></p>
+                <p><font size="6">28207</font></p>
+                <p><font size="6">Bremen</font></p>
+                <p><font size="6">01528188936</font></p>
+              </ng-container>
+          </div>
+        </div>
+        <div class="col-md-4 col-md-2">
+          <div class="p-5">
             <table class="table table-striped table-hover">
               <thead class="table-dark">
               <tr>
@@ -85,12 +83,12 @@
             </table>
           </div>
         </div>
-      </div>
-      <div class="p-5">
-        <div class="d-flex flex-row-reverse">
-          <div class="d-grid gap-2 d-md-flex">
-            <button type="button" class="btn btn-secondary" (click)="backEmployee()">Back</button>
-            <button type="button" class="btn btn-secondary" (click)="deleteEmployee()">Delete</button>
+        <div class="p-5">
+          <div class="d-flex flex-row-reverse">
+            <div class="d-grid gap-2 d-md-flex">
+              <button type="button" class="btn btn-secondary" (click)="backEmployee()">Back</button>
+              <button type="button" class="btn btn-secondary" (click)="deleteEmployee()">Delete</button>
+            </div>
           </div>
         </div>
       </div>

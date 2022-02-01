@@ -37,28 +37,26 @@
     </div>
   </header>
   <body>
-    <div class="row">
-      <div class="col-md-4 col-md-2">
-        <div class="p-5">
-          <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 col-md-2">
+          <div class="p-5">
             <p><font size="6" >ID:</font></p>
             <p><font size="6" >Designation:</font></p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 col-md-2">
-        <div class="p-5">
-          <div class="container-fluid">
+        <div class="col-md-4 col-md-2">
+          <div class="p-5">
             <p><input class="form-control" id="newQualificationID" type="number" readonly></p>
             <p><font size="9"><input class="form-control" id="newDesignation" type="string"></font></p>
           </div>
         </div>
-      </div>
-      <div class="p-5">
-        <div class="d-flex flex-row-reverse">
-          <div class="d-grid gap-2 d-md-flex">
-            <button type="button" class="btn btn-secondary" (click)="saveQualification()">Save</button>
-            <button type="button" class="btn btn-secondary" (click)="cancelQualification()">Cancel</button>
+        <div class="p-5">
+          <div class="d-flex flex-row-reverse">
+            <div class="d-grid gap-2 d-md-flex">
+              <button type="button" class="btn btn-secondary" (click)="saveQualification()">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="cancelQualification()">Cancel</button>
+            </div>
           </div>
         </div>
       </div>
