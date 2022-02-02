@@ -26,23 +26,26 @@
           Not 100% ready yet!
         </div>
         <div class="col-md-7 mb-3">
+          <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
           <div class="row mt-5">
             <u><h1>Sign In</h1></u>
             <div class="form-group">
-              <label for="exampleInputEmailOrUsername">Username or E-Mail</label>
-              <input type="email" class="form-control" id="exampleInputEmailOrUsername" aria-describedby="emailHelp" placeholder="Enter username or email">
+              <label for="newUsersName">E-Mail</label>
+              <input name="email"  type="email" class="form-control" id="newUsersName" aria-describedby="emailHelp" placeholder="Email Address" ngModel>
+              <!--label for="exampleInputEmailOrUsername">username: </label-->
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="newUsersPassword">Password</label>
+              <input name="password"  type="password" class="form-control" id="newUsersPassword" placeholder="Password" ngModel>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-md-7 mb-3">
-              <button type="button" class="btn btn-secondary">LogIn</button>
-              <button type="button" class="btn btn-secondary">Register</button>
+              <button type="submit" class="btn btn-secondary">LogIn</button>
+              <button routerLink="/register" type="button" style=" float: right" class="reg btn btn-secondary ">Register</button>
             </div>
           </div>
+        </form>
         </div>
         <div class="col-md-5">
           <div class="row mt-5">
@@ -64,4 +67,5 @@
     </div>
   </body>
 </form>
+
 

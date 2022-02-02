@@ -7,12 +7,17 @@ import { User } from '../model/User';
 export class LoginDataService {
   Users: User[] = [];
   constructor() {
+<<<<<<< HEAD
     this.Users.push(new User(1,'haneef','123'));
 
   }
   registerUser(User : User){
     this.Users.push(User);
-    alert("successfully registered")
+
+=======
+    //this.Users.push(new Users(1,'haneef','123'));
+>>>>>>> a278e9f (registerWithlogin)
+
   }
 
 
