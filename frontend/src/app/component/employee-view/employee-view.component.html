@@ -64,15 +64,15 @@
               <td>015251888936</td>
             </tr>
           </ng-container>
-<!--          <ng-container *ngFor="let e of employees$ | async">-->
-<!--            <tr>-->
-<!--              <td>ID</td>-->
-<!--              <td>{{e.lastName }}</td>-->
-<!--              <td>{{e.firstName}}</td>-->
-<!--              <td>{{e.street }}, {{e.postcode}} {{e.city}}</td>-->
-<!--              <td>{{e.phone}}</td>-->
-<!--            </tr>-->
-<!--          </ng-container>-->
+         <ng-container *ngFor="let e of employees$ | async">
+           <tr>
+             <td>{{e.id}}</td>
+             <td>{{e.lastName }}</td>
+             <td>{{e.firstName}}</td>
+             <td>{{e.street }}, {{e.postcode}} {{e.city}}</td>
+             <td>{{e.phone}}</td>
+          </tr>
+         </ng-container>
           </tbody>
         </table>
       </div>
