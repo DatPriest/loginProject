@@ -1,18 +1,20 @@
-import {Component} from '@angular/core';
-import { Employee } from './model/Employee';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import { BearerTokenHolderService } from './service/bearer-token-holder.service';
-import { EmployeeService } from './service/employee.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
 
-  constructor() {
+export class AppComponent implements OnInit{
+  index: number = 0;
+  detailEmployeeId: number | undefined = 0;
+  detailQualificationId: number | undefined = 0;
 
+  constructor(private bearer: BearerTokenHolderService) {
+  }
+
+  ngOnInit(): void {
   }
 }

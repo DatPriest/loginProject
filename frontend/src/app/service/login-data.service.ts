@@ -7,7 +7,7 @@ import { User } from '../model/User';
 export class LoginDataService {
   Users: User[] = [];
   constructor() {
-    this.Users.push(new User(1,'haneef','123'));
+    this.Users.push(new User('haneef','123'));
 
   }
   registerUser(User : User){

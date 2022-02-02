@@ -37,8 +37,7 @@ export class EmployeeDetailViewComponent implements OnInit {
     this.app.index = 1;
   }
 
-  detailViewEmployee(): void {
-
+  public detailEmployee(employee: Employee): void {
   }
 
   ngOnInit(): void {

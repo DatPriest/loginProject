@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AppComponent} from "../../app.component";
 import {User} from "../../model/User";
 import {LoginDataService} from "../../service/login-data.service";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
-//import {AuthenticationService} from "../../service/authentication/authentication.service";
-import {BearerTokenHolderService} from "../../service/bearer-token-holder.service";
+import { Router} from "@angular/router";
+import { HttpClient} from "@angular/common/http";
+import { FormBuilder, FormGroup, NgForm} from "@angular/forms";
+import { BearerTokenHolderService} from "../../service/bearer-token-holder.service";
+import { AuthenticationService } from "../../service/authentication/authentication.service";
 
 
 @Component({
@@ -16,21 +16,21 @@ import {BearerTokenHolderService} from "../../service/bearer-token-holder.servic
 })
 export class LoginViewComponent implements OnInit {
 
-  //constructor(private app: AppComponent) { }
+  // constructor(private app: AppComponent) { }
 
-  login(): void {
-    this.app.index = 1;
-  }
+  //  login(): void {
+  //    this.app.index = 1;
+  //  }
+  // //
+  //  register(): void {
+  //    this.app.index = 1;
+  //  }
 
-  register(): void {
-    this.app.index = 1;
-  }
-  User : User;
   form : FormGroup;
-  signupForm!:FormGroup
+  signupForm!:FormGroup;
 
   constructor(private app: AppComponent, private kc: BearerTokenHolderService,
-    //private authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
@@ -50,7 +50,7 @@ export class LoginViewComponent implements OnInit {
   onSubmit(signInForm: NgForm){
     console.log(signInForm.value);
     const signInData = new User(signInForm.value.email, signInForm.value.password);
-    //this.authenticationService.authenticate(signInData);
+    this.authenticationService.authenticate(signInData);
   }
   /*save() {
     this.loginDataService.registerUser(this.User);
