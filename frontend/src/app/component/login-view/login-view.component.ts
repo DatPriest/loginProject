@@ -42,6 +42,13 @@ export class LoginViewComponent implements OnInit {
 
   }
 
+  ErrorMessage(): string {
+    if (this.authenticationService.isAuthenticated == false) {
+      return <string>this.app.Loginfailed;
+    }
+    return "Test";
+  }
+
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       name:[''],

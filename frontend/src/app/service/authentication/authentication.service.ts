@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {User} from "../../model/User";
 import {Router} from "@angular/router";
 import {BearerTokenHolderService} from "../bearer-token-holder.service";
+import {AppComponent} from "../../app.component";
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +11,7 @@ export class AuthenticationService {
   private  readonly mockeUser = new User('test@mail.com', '123');
   isAuthenticated = true;
   count = 0;
-  constructor(private router : Router, private bearertoken: BearerTokenHolderService) { }
+  constructor(private router : Router, private bearertoken: BearerTokenHolderService, private app: AppComponent) { }
 
   authenticate(signInData: User): boolean{
     if(this.checkCredentials(signInData)){
@@ -21,7 +22,8 @@ export class AuthenticationService {
         return true;
       }
       else {
-        alert("You are bloked");
+        this.app.Loginfailed = "You are bloked";
+        //alert("You are bloked");
         return false;
       }
 
@@ -29,12 +31,14 @@ export class AuthenticationService {
     else{
       if (this.count < 2) {
         this.isAuthenticated = false;
-        alert("this E-mail or Password ist incorrect");
+        this.app.Loginfailed = "This E-mail / Username or Password is incorrect";
+        //alert("this E-mail, Username or Password is incorrect");
         this.count++
         return false;
       }
       else {
-        alert("you are blocked");
+        this.app.Loginfailed = "You are bloked";
+        //alert("you are blocked");
         return false;
       }
     }

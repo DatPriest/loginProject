@@ -8,9 +8,8 @@ import { BearerTokenHolderService } from './service/bearer-token-holder.service'
 })
 
 export class AppComponent implements OnInit{
-  index: number = 0;
-  detailEmployeeId: number | undefined = 0;
-  detailQualificationId: number | undefined = 0;
+
+  Loginfailed: string | undefined;
 
   constructor(private bearer: BearerTokenHolderService) {
   }

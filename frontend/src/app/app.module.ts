@@ -41,7 +41,7 @@ import {
       {path: 'qualification/detail', component:QualificationDetailViewComponent}
     ])
   ],
-  providers: [BearerTokenHolderService, EmployeeService],
+  providers: [BearerTokenHolderService, EmployeeService, AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
