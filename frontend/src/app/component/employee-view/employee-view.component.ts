@@ -29,8 +29,9 @@ export class EmployeeViewComponent implements OnInit {
     this.app.index = 3;
   }
 
-  detailEmployee(): void {
+  detailViewEmployee(employee: Employee): void {
     this.app.index = 2;
+    this.app.detailEmployee = employee.id;
   }
 
   constructor(private employeeService: EmployeeService) {

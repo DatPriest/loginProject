@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppComponent} from "../../app.component";
+import {Qualification} from "../../model/Qualification";
 
 @Component({
   selector: 'app-qualification-detail-view',
@@ -8,7 +9,15 @@ import {AppComponent} from "../../app.component";
 })
 export class QualificationDetailViewComponent implements OnInit {
 
-  constructor(private app: AppComponent) { }
+  qualifications$ : Qualification[] = [];
+  constructor(private app: AppComponent) {
+    this.qualifications$.push(new Qualification(1,"C++"));
+    this.qualifications$.push(new Qualification(2,"Rust"));
+    this.qualifications$.push(new Qualification(3,"Javascript"));
+    this.qualifications$.push(new Qualification(4,"Python"));
+    this.qualifications$.push(new Qualification(5,"HTML"));
+    this.qualifications$.push(new Qualification(6,"TypeScript"));
+  }
 
   menuEmployee(): void {
     this.app.index = 1;

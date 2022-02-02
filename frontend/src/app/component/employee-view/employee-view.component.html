@@ -57,7 +57,7 @@
           <tbody>
           <ng-container *ngFor="let e of employees$">
             <tr>
-              <td (click)="detailEmployee()">{{e.id}}</td>
+              <td (click)="detailViewEmployee(e)">{{e.id}}</td>
               <td>{{e.lastName }}</td>
               <td>{{e.firstName}}</td>
               <td>{{e.street }}, {{e.postcode}} {{e.city}}</td>

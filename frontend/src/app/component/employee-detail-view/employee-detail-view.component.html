@@ -53,14 +53,15 @@
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-              <ng-container>
-                <p><font size="6">Bullwinkel</font></p>
-                <p><font size="6">Lukas</font></p>
-                <p><font size="6">Malerstraße 3</font></p>
-                <p><font size="6">28207</font></p>
-                <p><font size="6">Bremen</font></p>
-                <p><font size="6">01528188936</font></p>
-              </ng-container>
+            <ng-container *ngFor="let e of employees$">
+              <p>{{e.id}}</p>
+              <p>{{e.lastName }}</p>
+              <p>{{e.firstName}}</p>
+              <p>{{e.street }}</p>
+              <p>{{e.postcode}}</p>
+              <p>{{e.city}}</p>
+              <p>{{e.phone}}</p>
+            </ng-container>
           </div>
         </div>
         <div class="col-md-4 col-md-2">

@@ -48,8 +48,8 @@
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-            <ng-container>
-              <p><font size="6">C++</font></p>
+            <ng-container *ngFor="let q of qualifications$">
+              <p><font size="6">{{q.designation}}</font></p>
             </ng-container>
           </div>
         </div>
