@@ -10,17 +10,15 @@ import { EmployeeService } from 'src/app/service/employee.service';
 })
 export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
-  employees$ :Observable<Employee[]> = of([]);
+  employees$ : Observable<Employee[]> = of([]);
 
 
   constructor(private employeeService: EmployeeService) {
-    //setInterval(() => this.getEmployees(), 15000);
     this.employees$ = employeeService.employees$;
   }
 
 
   ngOnInit(): void {
-    //this.getEmployees()
     this.employeeService.employees$.subscribe(data => {
       console.log(data);
       this.employees = data;

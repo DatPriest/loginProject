@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { AppComponent } from '../app.component';
-import { BearerToken } from '../model/BearerToken';
+import { BearerToken } from '../../../../server/src/model/BearerToken';
 import { DatabaseConnectorService } from './database-connector.service';
 
 const url = "http://keycloak.szut.dev/auth/realms/szut/protocol/openid-connect/token";
