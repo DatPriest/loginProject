@@ -16,6 +16,7 @@ import {BearerTokenHolderService} from "../../service/bearer-token-holder.servic
 })
 export class LoginViewComponent implements OnInit {
 
+  //constructor(private app: AppComponent) { }
 
   login(): void {
     this.app.index = 1;
@@ -24,17 +25,21 @@ export class LoginViewComponent implements OnInit {
   register(): void {
     this.app.index = 1;
   }
-  User : User = new User();
+  User : User;
   form : FormGroup;
   signupForm!:FormGroup
 
-  constructor(private app: AppComponent, private loginDataService: LoginDataService, private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private app: AppComponent, private kc: BearerTokenHolderService,
+    //private authenticationService: AuthenticationService,
+    private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       name: '',
       password: ''
 
     });
+    //this.User = new Users(null, null, null);
+
   }
 
   ngOnInit(): void {
