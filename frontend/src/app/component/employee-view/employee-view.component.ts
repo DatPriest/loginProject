@@ -13,6 +13,11 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   employees$ : Observable<Employee[]> = of([]);
 
+  constructor(private employeeService: EmployeeService, private app : AppComponent) {
+    this.employees$ = employeeService.employees$;
+  }
+
+
   menuEmployee(): void {
     this.app.index = 1;
   }
@@ -31,13 +36,8 @@ export class EmployeeViewComponent implements OnInit {
 
   detailViewEmployee(employee: Employee): void {
     this.app.index = 2;
-    this.app.detailEmployee = employee.id;
+    this.app.detailEmployeeId = employee.id;
   }
-
-  constructor(private employeeService: EmployeeService) {
-    this.employees$ = employeeService.employees$;
-  }
-
 
   ngOnInit(): void {
     this.employeeService.employees$.subscribe(data => {
