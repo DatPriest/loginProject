@@ -5,7 +5,7 @@ import {LoginDataService} from "../../service/login-data.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
-import {AuthenticationService} from "../../service/authentication/authentication.service";
+//import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {BearerTokenHolderService} from "../../service/bearer-token-holder.service";
 
 
@@ -16,7 +16,6 @@ import {BearerTokenHolderService} from "../../service/bearer-token-holder.servic
 })
 export class LoginViewComponent implements OnInit {
 
-  constructor(private app: AppComponent) { }
 
   login(): void {
     this.app.index = 1;
@@ -25,19 +24,17 @@ export class LoginViewComponent implements OnInit {
   register(): void {
     this.app.index = 1;
   }
-  User : User;
+  User : User = new User();
   form : FormGroup;
   signupForm!:FormGroup
 
-  constructor(private kc: BearerTokenHolderService, private authenticationService: AuthenticationService, private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
+  constructor(private app: AppComponent, private loginDataService: LoginDataService, private http: HttpClient, private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       name: '',
       password: ''
 
     });
-    //this.User = new Users(null, null, null);
-
   }
 
   ngOnInit(): void {
@@ -47,8 +44,8 @@ export class LoginViewComponent implements OnInit {
   }
   onSubmit(signInForm: NgForm){
     console.log(signInForm.value);
-    const signInData = new Users(signInForm.value.email, signInForm.value.password);
-    this.authenticationService.authenticate(signInData);
+    const signInData = new User(signInForm.value.email, signInForm.value.password);
+    //this.authenticationService.authenticate(signInData);
   }
   /*save() {
     this.loginDataService.registerUser(this.User);
