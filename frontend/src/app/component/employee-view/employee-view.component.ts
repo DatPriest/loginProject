@@ -17,10 +17,11 @@ export class EmployeeViewComponent implements OnInit {
     this.employees$ = employeeService.employees$;
   }
   isAuth(): boolean{
-   return this.authentifcationservice.isAuthenticated;
+   //return this.authentifcationservice.isAuthenticated;
+   return false;
   }
   logout(){
-    this.authentifcationservice.logout();
+    //this.authentifcationservice.logout();
   }
 
 
@@ -32,7 +33,7 @@ export class EmployeeViewComponent implements OnInit {
     this.app.index = 4;
   }
 
-  logout(): void {
+  logoutView(): void {
     this.app.index = 0;
   }
 
