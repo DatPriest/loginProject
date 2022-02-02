@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from "../../model/Employee";
 import {EmployeeService} from "../../service/employee.service";
-import {AppComponent} from "../../app.component";
+import {AuthenticationService} from "../../service/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-employee-detail-view',
@@ -11,33 +12,15 @@ import {AppComponent} from "../../app.component";
 export class EmployeeDetailViewComponent implements OnInit {
 
   employees$ : Employee[] = [];
-  constructor(private employeeService: EmployeeService, private app: AppComponent) {
-    this.employeeService.employees$.subscribe(data => this.employees$ = data);
-    this.employees$.push(new Employee(1, "Bullwinkel", "Lukas", "Malerstraße 3", "28207", "Bremen", "015251888936"));
-    this.employees$.push(new Employee(2, "Cwiertnia", "Leon", "Malerstraße 3", "28207", "Bremen", "01234567890"));
+  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, private router: Router) {
   }
 
-  menuEmployee(): void {
-    this.app.index = 1;
+  isAuth(): boolean{
+    return this.authentifcationservice.isAuthenticated;
   }
 
-  menuQualification(): void {
-    this.app.index = 4;
-  }
-
-  logout(): void {
-    this.app.index = 0;
-  }
-
-  backEmployee(): void {
-    this.app.index = 1;
-  }
-
-  deleteEmployee(): void {
-    this.app.index = 1;
-  }
-
-  public detailEmployee(employee: Employee): void {
+  logout(){
+    this.authentifcationservice.logout();
   }
 
   ngOnInit(): void {

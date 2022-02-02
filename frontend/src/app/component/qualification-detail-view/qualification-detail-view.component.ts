@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AppComponent} from "../../app.component";
 import {Qualification} from "../../model/Qualification";
+import {AuthenticationService} from "../../service/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-qualification-detail-view',
@@ -10,7 +11,7 @@ import {Qualification} from "../../model/Qualification";
 export class QualificationDetailViewComponent implements OnInit {
 
   qualifications$ : Qualification[] = [];
-  constructor(private app: AppComponent) {
+  constructor(private authentifcationservice: AuthenticationService, private router: Router) {
     this.qualifications$.push(new Qualification(1,"C++"));
     this.qualifications$.push(new Qualification(2,"Rust"));
     this.qualifications$.push(new Qualification(3,"Javascript"));
@@ -19,24 +20,12 @@ export class QualificationDetailViewComponent implements OnInit {
     this.qualifications$.push(new Qualification(6,"TypeScript"));
   }
 
-  menuEmployee(): void {
-    this.app.index = 1;
+  isAuth(): boolean{
+    return this.authentifcationservice.isAuthenticated;
   }
 
-  menuQualification(): void {
-    this.app.index = 4;
-  }
-
-  logout(): void {
-    this.app.index = 0;
-  }
-
-  backQualification(): void {
-    this.app.index = 1;
-  }
-
-  deleteQualification(): void {
-    this.app.index = 1;
+  logout(){
+    this.authentifcationservice.logout();
   }
 
   ngOnInit(): void {

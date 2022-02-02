@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AppComponent} from "../../app.component";
+import {AuthenticationService} from "../../service/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-employee-creation-view',
@@ -8,26 +9,14 @@ import {AppComponent} from "../../app.component";
 })
 export class EmployeeCreationViewComponent implements OnInit {
 
-  constructor(private app: AppComponent) { }
+  constructor(private authentifcationservice: AuthenticationService, private router: Router) { }
 
-  menuEmployee(): void {
-    this.app.index = 1;
+  isAuth(): boolean{
+    return this.authentifcationservice.isAuthenticated;
   }
 
-  menuQualification(): void {
-    this.app.index = 4;
-  }
-
-  logout(): void {
-    this.app.index = 0;
-  }
-
-  saveEmployee(): void {
-    this.app.index = 1;
-  }
-
-  backEmployee(): void {
-    this.app.index = 1;
+  logout(){
+    this.authentifcationservice.logout();
   }
 
   ngOnInit(): void {

@@ -31,7 +31,7 @@ export class LoginViewComponent implements OnInit {
 
   constructor(private app: AppComponent, private kc: BearerTokenHolderService,
     private authenticationService: AuthenticationService,
-    private loginDataService: LoginDataService, private router : Router, private http: HttpClient,private formBuilder: FormBuilder) {
+    private loginDataService: LoginDataService, private router : Router, private http: HttpClient, private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       name: '',

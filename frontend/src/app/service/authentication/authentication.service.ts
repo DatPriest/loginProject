@@ -8,7 +8,7 @@ import {BearerTokenHolderService} from "../bearer-token-holder.service";
 export class AuthenticationService {
 
   private  readonly mockeUser = new User('test@mail.com', '123');
-  isAuthenticated = false;
+  isAuthenticated = true;
   count = 0;
   constructor(private router : Router, private bearertoken: BearerTokenHolderService) { }
 
@@ -35,7 +35,6 @@ export class AuthenticationService {
       }
       else {
         alert("you are blocked");
-        alert("test");
         return false;
       }
     }

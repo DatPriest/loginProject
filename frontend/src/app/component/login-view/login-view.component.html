@@ -27,28 +27,23 @@
   <body>
     <div class="container">
       <div class="row mt-5">
-        <div class="alert alert-danger" role="alert">
-          Not 100% ready yet!
-        </div>
         <div class="col-md-7 mb-3">
           <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
           <div class="row mt-5">
             <u><h1>Sign In</h1></u>
-            <div class="form-group">
-              <label for="newUsersName">E-Mail</label>
-              <input name="email"  type="email" class="form-control" id="newUsersName" aria-describedby="emailHelp" placeholder="Email Address" ngModel>
-              <!--label for="exampleInputEmailOrUsername">username: </label-->
+            <div class="form-floating mb-3">
+              <input name="email" type="email" class="form-control" id="newUsersName" ngModel placeholder="">
+              <label for="newUsersName">Email address or Username</label>
             </div>
-            <div class="form-group">
+            <div class="form-floating">
+              <input name="password" type="password" class="form-control" id="newUsersPassword" ngModel placeholder="">
               <label for="newUsersPassword">Password</label>
-              <input name="password"  type="password" class="form-control" id="newUsersPassword" placeholder="Password" ngModel>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col-md-7 mb-3">
               <div class="d-grid gap-2 d-md-flex">
                 <button type="submit" class="btn btn-secondary">Login</button>
-<!--                <button type="button" class="btn btn-secondary" (click)="register()">Register</button>-->
               </div>
             </div>
           </div>

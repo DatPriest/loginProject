@@ -1,9 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/observable/of';
-import { BearerToken } from '../../../../server/src/model/BearerToken';
 import { Employee } from '../model/Employee';
 import { BearerTokenHolderService } from './bearer-token-holder.service';
 import { DatabaseConnectorService } from './database-connector.service';
