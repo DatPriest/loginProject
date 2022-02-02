@@ -29,7 +29,7 @@ export class LoginViewComponent implements OnInit {
   form : FormGroup;
   signupForm!:FormGroup;
 
-  constructor(private app: AppComponent, private kc: BearerTokenHolderService,
+  constructor(public app: AppComponent, private kc: BearerTokenHolderService,
     private authenticationService: AuthenticationService,
     private loginDataService: LoginDataService, private router : Router, private http: HttpClient, private formBuilder: FormBuilder) {
 
@@ -42,11 +42,13 @@ export class LoginViewComponent implements OnInit {
 
   }
 
-  ErrorMessage(): string {
+  ErrorWindow() {
     if (this.authenticationService.isAuthenticated == false) {
-      return <string>this.app.Loginfailed;
+      return true;
+      console.log(this.app.Loginfailed);
+    } else {
+      return false;
     }
-    return "Test";
   }
 
   ngOnInit(): void {
