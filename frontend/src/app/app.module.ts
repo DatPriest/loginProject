@@ -26,6 +26,8 @@ import { QualificationDetailViewComponent } from './component/qualification-deta
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BearerTokenHolderService, EmployeeService, AppComponent],
   bootstrap: [AppComponent]

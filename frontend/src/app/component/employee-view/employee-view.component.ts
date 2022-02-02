@@ -16,6 +16,12 @@ export class EmployeeViewComponent implements OnInit {
   constructor(private employeeService: EmployeeService, private app : AppComponent) {
     this.employees$ = employeeService.employees$;
   }
+  isAuth(): boolean{
+   return this.authentifcationservice.isAuthenticated;
+  }
+  logout(){
+    this.authentifcationservice.logout();
+  }
 
 
   menuEmployee(): void {
