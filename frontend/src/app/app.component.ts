@@ -12,6 +12,8 @@ import { EmployeeService } from './service/employee.service';
 })
 export class AppComponent {
   index: number = 0;
+  detailEmployee: number | undefined = 0;
+  detailQualification: number | undefined = 0;
 
   constructor() { }
 

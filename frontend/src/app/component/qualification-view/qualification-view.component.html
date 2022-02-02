@@ -54,7 +54,7 @@
           <tbody>
           <ng-container *ngFor="let q of qualifications$">
             <tr>
-              <td (click)="detailQualification()">{{q.id}}</td>
+              <td (click)="detailQualification(q)">{{q.id}}</td>
               <td>{{q.designation}}</td>
             </tr>
           </ng-container>

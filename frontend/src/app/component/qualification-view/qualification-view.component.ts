@@ -35,8 +35,9 @@ export class QualificationViewComponent implements OnInit {
     this.app.index = 5;
   }
 
-  detailQualification(): void {
+  detailQualification(qualification: Qualification): void {
     this.app.index = 6;
+    this.app.detailQualification = qualification.id;
   }
 
   ngOnInit(): void {
