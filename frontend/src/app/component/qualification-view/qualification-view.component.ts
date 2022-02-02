@@ -37,7 +37,11 @@ export class QualificationViewComponent implements OnInit {
 
   detailQualification(qualification: Qualification): void {
     this.app.index = 6;
+<<<<<<< HEAD
     this.app.detailQualification = qualification.id;
+=======
+    this.app.detailQualificationId = qualification.id;
+>>>>>>> a017894da329ef0a4e3f9eda55c254e90cfa3460
   }
 
   ngOnInit(): void {

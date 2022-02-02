@@ -6,13 +6,12 @@ import { Employee } from '../model/Employee';
 import { BearerTokenHolderService } from './bearer-token-holder.service';
 import { DatabaseConnectorService } from './database-connector.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
   employees$: Observable<Employee[]>;
-  employee: Employee[ ] = [ ];
-
   constructor (
     private http: HttpClient,
     private bearerService : BearerTokenHolderService,

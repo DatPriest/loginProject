@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Users } from "../model/Users";
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginDataService {
-  Users: Users[] = [];
+  Users: User[] = [];
   constructor() {
-    this.Users.push(new Users(1,'haneef','123'));
+    this.Users.push(new User(1,'haneef','123'));
 
   }
-  registerUser(User : Users){
+  registerUser(User : User){
     this.Users.push(User);
     alert("successfully registered")
   }
