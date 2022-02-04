@@ -48,9 +48,9 @@ export class LoginViewComponent implements OnInit {
   }
 
   ErrorWindow() {
+    //this.app.Loginfailed = "Penis lol!"
     if (this.authenticationService.isAuthenticated == false) {
       return true;
-      console.log(this.app.Loginfailed);
     } else {
       return false;
     }
