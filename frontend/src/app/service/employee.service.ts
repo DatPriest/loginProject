@@ -18,6 +18,18 @@ export class EmployeeService {
     this.fetchData();
   }
 
+  deleteEmployee(): void{
+    console.log('DELETE');
+  }
+
+  detailEmployee(): void {
+    console.log('DETAIL');
+  }
+
+  updateEmployee(employee: Employee){
+
+  }
+
   fetchData() {
     this.bearerService.bearerTokenObservable$.subscribe(bearerData => {
       this.http.get<Employee[]>('https://hub.dummyapis.com/employee', {

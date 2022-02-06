@@ -26,11 +26,11 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   deleteEmployee(): void{
-    console.log('DELETE');
+    this.employeeService.deleteEmployee();
   }
 
   detailEmployee(): void {
-    console.log('DETAIL');
+    this.employeeService.detailEmployee();
   }
 
   ngOnInit(): void {
