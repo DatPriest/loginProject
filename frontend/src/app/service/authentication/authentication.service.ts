@@ -23,7 +23,6 @@ export class AuthenticationService {
       }
       else {
         this.app.Loginfailed = "You are bloked";
-        console.log(this.app.Loginfailed);
         //alert("You are bloked");
         return false;
       }
@@ -33,14 +32,12 @@ export class AuthenticationService {
       if (this.count < 2) {
         this.isAuthenticated = false;
         this.app.Loginfailed = "This E-mail / Username or Password is incorrect";
-        console.log(this.app.Loginfailed);
         //alert("this E-mail, Username or Password is incorrect");
         this.count++
         return false;
       }
       else {
         this.app.Loginfailed = "You are bloked";
-        console.log(this.app.Loginfailed);
         //alert("you are blocked");
         return false;
       }

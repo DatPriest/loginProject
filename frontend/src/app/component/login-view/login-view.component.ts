@@ -29,9 +29,14 @@ export class LoginViewComponent implements OnInit {
   form : FormGroup;
   signupForm!:FormGroup;
 
-  constructor(public app: AppComponent, private kc: BearerTokenHolderService,
+  constructor(
+    public app: AppComponent,
+    private kc: BearerTokenHolderService,
     private authenticationService: AuthenticationService,
-    private loginDataService: LoginDataService, private router : Router, private http: HttpClient, private formBuilder: FormBuilder) {
+    private loginDataService: LoginDataService,
+    private router : Router,
+    private http: HttpClient,
+    private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       name: '',
@@ -60,6 +65,9 @@ export class LoginViewComponent implements OnInit {
     console.log(signInForm.value);
     const signInData = new User(signInForm.value.email, signInForm.value.password);
     this.authenticationService.authenticate(signInData);
+    this.loginDataService.login(signInData);
+    this.app.user = signInData;
+
   }
   /*save() {
     this.loginDataService.registerUser(this.User);
@@ -67,8 +75,10 @@ export class LoginViewComponent implements OnInit {
   /*
   register() : void {
     this.http.post('http://localhost:8000/api/register',{}).subscribe(() =>this.router.navigate(['/register']));
+  }
+  //change(event) {
+    alert(event.target.value);
   }*/
-  //change(event) {alert(event.target.value);}
 
 
 }

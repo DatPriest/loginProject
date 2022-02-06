@@ -26,7 +26,6 @@ import {QualificationDetailViewComponent} from "./component/qualification-detail
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '',component: LoginViewComponent},
       {path: 'employee', component:EmployeeViewComponent},
