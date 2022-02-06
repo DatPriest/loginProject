@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import {Qualification} from "../../model/Qualification";
 import {AppComponent} from "../../app.component";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
 import { Observable, of } from 'rxjs';
 import { QualificationService } from 'src/app/qualification.service';
+
 
 @Component({
   selector: 'app-qualification-view',

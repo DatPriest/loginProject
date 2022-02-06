@@ -13,12 +13,18 @@ import {EmployeeCreationViewComponent} from "./component/employee-creation-view/
 import {EmployeeDetailViewComponent} from "./component/employee-detail-view/employee-detail-view.component";
 import {QualificationCreationViewComponent} from "./component/qualification-creation-view/qualification-creation-view.component";
 import {QualificationDetailViewComponent} from "./component/qualification-detail-view/qualification-detail-view.component";
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginViewComponent,
-    EmployeeViewComponent
+    EmployeeViewComponent,
+    QualificationCreationViewComponent,
+    QualificationViewComponent,
+    QualificationDetailViewComponent,
+    EmployeeCreationViewComponent,
+    EmployeeDetailViewComponent
 
   ],
   imports: [
@@ -26,6 +32,7 @@ import {QualificationDetailViewComponent} from "./component/qualification-detail
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule,
     RouterModule.forRoot([
       {path: '',component: LoginViewComponent},
       {path: 'employee', component:EmployeeViewComponent},

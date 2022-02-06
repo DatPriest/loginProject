@@ -1,6 +1,6 @@
 {
   "/backend": {
-    "target": "http://127.0.0.1:8089/employees",
+    "target": "http://127.0.0.1:8089/",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
