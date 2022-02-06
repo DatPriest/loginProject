@@ -13,17 +13,15 @@ import {Router} from "@angular/router";
 export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   employees$ : Observable<Employee[]> = of([]);
-  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, private router: Router) {
+  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router) {
     if (this.authentifcationservice.isAuthenticated) {
       this.loadEmployees();
-    }
+    } else
+    this.router.navigate(["/"])
   }
 
   loadEmployees() {
-    console.log(this.employees$);
     this.employees$ = this.employeeService.getEmployees();
-    this.employeeService.postEmployees();
-    console.log(this.employees$);
   }
 
   isAuth(): boolean{

@@ -12,7 +12,7 @@
             <div class="p-5">
               <div class="d-grid gap-2 d-md-flex">
                 <a class="btn btn-outline-dark" href="employee" role="button">Employee</a>
-                <a class="btn btn-dark" href="qualification" role="button">Qualification</a>
+                <a class="btn btn-dark" (click)="router.navigate(['qualification'])" role="button">Qualification</a>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
           </tr>
           </thead>
           <tbody>
-            <ng-container *ngFor="let q of qualifications$">
+            <ng-container *ngFor="let q of qualifications$ | async">
               <tr>
                 <td>{{q.id}}</td>
                 <td>{{q.designation}}</td>

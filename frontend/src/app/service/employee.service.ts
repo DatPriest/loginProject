@@ -16,8 +16,9 @@ export class EmployeeService {
   }
 
   public getEmployees() : Observable<Employee[]> {
+
     console.log(`Loading Employees...\n BearerToken: ${this.bearerService.bearer.access_token}`)
-    return this.http.get<Employee[]>('/backend', {
+    return this.http.get<Employee[]>('/backend/employees', {
       headers : new HttpHeaders().append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`).append('Content-Type', `application/json`)
     }).pipe(
       tap({
@@ -26,23 +27,42 @@ export class EmployeeService {
     )
   }
 
-  public postEmployees() {
+  public postEmployees(employee : Employee) {
     console.log("Trying to post data employee")
-    const body = JSON.stringify({  "lastName": "string",
-    "firstName": "string",
-    "street": "string",
-    "postcode": "strin",
-    "city": "string",
-    "phone": "string"});
-    this.http.post<Employee[]>('/backend', body, {
+    this.http.post<Employee>('/backend-employees', employee, {
       headers : new HttpHeaders()
         .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
         .append('Content-Type', `application/json`)
     }).pipe(
       tap({
-        next: (x) => console.log(`Post Employee .. Length: ${x.length}`)
+        next: (x) => console.log(`Post Employee .. ${x}`)
     })).subscribe(data => console.log(data));
   }
+
+  public deleteEmployee(id : number) {
+    console.log("Trying to delete employee")
+    this.http.delete(`/backend/employees/${id}`, {
+      headers : new HttpHeaders()
+        .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
+        .append('Content-Type', `application/json`)
+    }).pipe(
+      tap({
+        next: (x) => console.log(`Deletes Employee .. Length: ${x}`)
+    })).subscribe(data => console.log(data));
+  }
+
+  public updateEmployee(employee : Employee) {
+    console.log("Trying to delete employee")
+    this.http.put<Employee>(`/backend/employees/${employee.id}`, JSON.stringify(employee),  {
+      headers : new HttpHeaders()
+        .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
+        .append('Content-Type', `application/json`)
+    }).pipe(
+      tap({
+        next: (x) => console.log(`Updates Employee .. Length: ${x}`)
+    })).subscribe(data => console.log(data));
+  }
+
 
   public handleError<T>(origin = "origin", result? : T) {
     //return (error: any) : Observable<T> => {

@@ -75,8 +75,10 @@ export class LoginViewComponent implements OnInit {
   /*
   register() : void {
     this.http.post('http://localhost:8000/api/register',{}).subscribe(() =>this.router.navigate(['/register']));
+  }
+  //change(event) {
+    alert(event.target.value);
   }*/
-  //change(event) {alert(event.target.value);}
 
 
 }

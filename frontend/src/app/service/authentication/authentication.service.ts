@@ -21,8 +21,8 @@ export class AuthenticationService {
         return true;
       }
       else {
-        this.app.Loginfailed = "You are bloked";
-        alert("You are bloked");
+        this.app.Loginfailed = "You are blocked";
+        alert("You are blocked");
         return false;
       }
 
@@ -36,7 +36,7 @@ export class AuthenticationService {
         return false;
       }
       else {
-        this.app.Loginfailed = "You are bloked";
+        this.app.Loginfailed = "You are blocked";
         alert("you are blocked");
         return false;
       }
