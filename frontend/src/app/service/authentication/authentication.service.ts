@@ -21,8 +21,8 @@ export class AuthenticationService {
         return true;
       }
       else {
-        this.app.Loginfailed = "You are bloked";
-        console.log(this.app.Loginfailed);
+        this.app.loginFailed = "You are bloked";
+        console.log(this.app.loginFailed);
         //alert("You are bloked");
         return false;
       }
@@ -31,15 +31,15 @@ export class AuthenticationService {
     else{
       if (this.count < 2) {
         this.isAuthenticated = false;
-        this.app.Loginfailed = "This E-mail / Username or Password is incorrect";
-        console.log(this.app.Loginfailed);
+        this.app.loginFailed = "This E-mail / Username or Password is incorrect";
+        console.log(this.app.loginFailed);
         //alert("this E-mail, Username or Password is incorrect");
         this.count++
         return false;
       }
       else {
-        this.app.Loginfailed = "You are bloked";
-        console.log(this.app.Loginfailed);
+        this.app.loginFailed = "You are bloked";
+        console.log(this.app.loginFailed);
         //alert("you are blocked");
         return false;
       }

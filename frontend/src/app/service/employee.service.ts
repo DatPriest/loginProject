@@ -27,6 +27,18 @@ export class EmployeeService {
     )
   }
 
+  public getEmployee(id : number) : Observable<Employee> {
+
+    console.log(`Loading Employees...\n BearerToken: ${this.bearerService.bearer.access_token}`)
+    return this.http.get<Employee>('/backend/employees/' + id, {
+      headers : new HttpHeaders().append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`).append('Content-Type', `application/json`)
+    }).pipe(
+      tap({
+        next: (x) => console.log(`Loaded Employee .. Employee: ${x}`)
+    }), //catchError<Employee[], never>(this.handleError<Employee[]>("Employee", []))
+    )
+  }
+
   public postEmployees(employee : Employee) {
     console.log("Trying to post data employee")
     this.http.post<Employee>('/backend-employees', employee, {

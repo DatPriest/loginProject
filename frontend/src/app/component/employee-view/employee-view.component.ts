@@ -32,12 +32,12 @@ export class EmployeeViewComponent implements OnInit {
     this.authentifcationservice.logout();
   }
 
-  deleteEmployee(): void{
-    this.employeeService.deleteEmployee();
+  deleteEmployee(): void {
+    this.employeeService.deleteEmployee(1);
   }
 
   detailEmployee(): void {
-    this.employeeService.detailEmployee();
+    this.employeeService.getEmployee(1);
   }
 
   ngOnInit(): void {
