@@ -21,7 +21,7 @@ export class AuthenticationService {
         return true;
       }
       else {
-        this.app.loginFailed = "You are bloked";
+        this.app.loginFailed = "You are blocked";
         console.log(this.app.loginFailed);
         //alert("You are bloked");
         return false;

@@ -10,8 +10,9 @@ import { BearerTokenHolderService } from './service/bearer-token-holder.service'
 
 export class AppComponent implements OnInit{
 
-  Loginfailed: string | undefined;
+  loginFailed: string | undefined;
   user? : User;
+  darkMode = true;
 
   constructor(private bearer: BearerTokenHolderService) {
   }
