@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { User } from './model/User';
 import { BearerTokenHolderService } from './service/bearer-token-holder.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { BearerTokenHolderService } from './service/bearer-token-holder.service'
 export class AppComponent implements OnInit{
 
   Loginfailed: string | undefined;
+  user? : User;
 
   constructor(private bearer: BearerTokenHolderService) {
   }

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config src/proxy.conf.json --host 127.0.0.1",
+    "start": "ng serve --proxy-config src/proxy.conf.json --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -47,6 +47,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "mocker-data-generator": "^2.12.0",
     "typescript": "^4.4.0"
   }
 }
