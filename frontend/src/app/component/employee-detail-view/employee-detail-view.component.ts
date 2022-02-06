@@ -37,6 +37,11 @@ export class EmployeeDetailViewComponent implements OnInit {
     }
   }
 
+  deleteEmployee(): void {
+    this.router.navigate(['employee']);
+    this.employeeService.deleteEmployee(1);
+  }
+
   ngOnInit(): void {
   }
 }

@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class QualificationDetailViewComponent implements OnInit {
 
   qualifications$ : Qualification[] = [];
-  constructor(private authentifcationservice: AuthenticationService, private router: Router) {
+  constructor(private authentifcationservice: AuthenticationService, public router: Router) {
     this.qualifications$.push(new Qualification(1,"C++"));
     this.qualifications$.push(new Qualification(2,"Rust"));
     this.qualifications$.push(new Qualification(3,"Javascript"));

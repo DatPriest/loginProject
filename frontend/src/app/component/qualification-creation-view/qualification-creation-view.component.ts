@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class QualificationCreationViewComponent implements OnInit {
 
-  constructor(private authentifcationservice: AuthenticationService, private router: Router) { }
+  constructor(private authentifcationservice: AuthenticationService, public router: Router) { }
 
   isAuth(): boolean{
     return this.authentifcationservice.isAuthenticated;

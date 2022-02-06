@@ -45,6 +45,7 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   detailEmployee(): void {
+    this.router.navigate(['employee/detail']);
     this.employeeService.getEmployee(1);
     this.router.navigate(['employee']);
   }
