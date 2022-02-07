@@ -3,15 +3,25 @@ import {User} from "../../model/User";
 import {Router} from "@angular/router";
 import {BearerTokenHolderService} from "../bearer-token-holder.service";
 import {AppComponent} from "../../app.component";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BearerToken } from 'src/app/model/BearerToken';
+import { tap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private readonly mockeUser = new User('test@mail.com', '123');
+  private readonly mockeUser = new User('user', 'test');
+  private readonly authUrl = "http://authproxy.szut.dev/";
+
   isAuthenticated = false;
   count = 0;
-  constructor(private router : Router, private bearertoken: BearerTokenHolderService, private app: AppComponent) { }
+  constructor(
+    private router : Router,
+    private bearerService: BearerTokenHolderService,
+    private app: AppComponent,
+    private http: HttpClient
+    ) { }
 
   authenticate(signInData: User): boolean{
     if(this.checkCredentials(signInData)){
@@ -57,5 +67,20 @@ export class AuthenticationService {
   logout(){
     this.isAuthenticated = false;
     this.router.navigate(['']);
+  }
+
+  login (user: User) {
+    const headers : HttpHeaders = new HttpHeaders(
+    ).append("Content-Type", "application/x-www-form-urlencoded");
+
+    const body = `grant_type=password&client_id=employee-management-service&username=${user.email}&password=${user.password}`;
+    this.http.post<BearerToken>(this.authUrl, body.toString(), {headers} )
+    .pipe(tap({
+      next: (x) => console.log(`Loaded BearerToken .. ${x.access_token}`),
+    }),
+    ).subscribe(data => {
+      this.bearerService.bearer = data;
+      this.router.navigate(['employee'])
+    });
   }
 }

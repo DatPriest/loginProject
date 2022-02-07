@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppComponent} from "../../app.component";
 import {User} from "../../model/User";
-import {LoginDataService} from "../../service/login-data.service";
 import { Router} from "@angular/router";
 import { HttpClient} from "@angular/common/http";
 import { FormBuilder, FormGroup, NgForm} from "@angular/forms";
@@ -33,7 +32,6 @@ export class LoginViewComponent implements OnInit {
     public app: AppComponent,
     private kc: BearerTokenHolderService,
     private authenticationService: AuthenticationService,
-    private loginDataService: LoginDataService,
     private router : Router,
     private http: HttpClient,
     private formBuilder: FormBuilder) {
@@ -65,7 +63,7 @@ export class LoginViewComponent implements OnInit {
     console.log(signInForm.value);
     const signInData = new User(signInForm.value.email, signInForm.value.password);
     this.authenticationService.authenticate(signInData);
-    this.loginDataService.login(signInData);
+    this.authenticationService.login(signInData);
     this.app.user = signInData;
 
   }
