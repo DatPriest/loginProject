@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { Employee } from 'src/app/model/Employee';
 import { EmployeeService } from 'src/app/service/employee.service';
-import { AuthenticationService} from "../../service/authentication/authentication.service";
+import { AuthenticationService} from "src/app/service/authentication/authentication.service";
 import {Router} from "@angular/router";
 
 @Component({
