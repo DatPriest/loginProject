@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
 })
 export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
+  searchTerm: string;
+  searchTerm2: string;
   employees$ : Observable<Employee[]> = of([]);
   constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router) {
     if (this.authentifcationservice.isAuthenticated) {
@@ -21,7 +23,10 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   loadEmployees() {
+    //this.employeeService.postEmployees(new Employee(6,'aboush','haneef','wilhel','27753','del','32432'));
     this.employees$ = this.employeeService.getEmployees();
+     //this.employees.forEach(value => this.employeeService.getEmployees());
+
   }
 
   isAuth(): boolean{
@@ -38,6 +43,7 @@ export class EmployeeViewComponent implements OnInit {
 
   detailEmployee(): void {
     this.employeeService.getEmployee(1);
+    this.router.navigate(['employee']);
   }
 
   ngOnInit(): void {

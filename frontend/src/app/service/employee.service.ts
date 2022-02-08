@@ -50,8 +50,10 @@ export class EmployeeService {
     }).pipe(
       tap({
         next: (x) => console.log(`Post Employee .. ${x}`)
-    })).subscribe(data => console.log(data));
+    })
+    ).subscribe(data => console.log(data));
   }
+
 
   public deleteEmployee(id : number) {
     console.log("Trying to delete employee")
