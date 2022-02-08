@@ -116,6 +116,7 @@
               <tr>
                 <th>ID</th>
                 <th>Designation</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -123,6 +124,13 @@
                 <tr>
                   <td>Q1</td>
                   <td>C++</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                    </button>
+                  </td>
                 </tr>
               </ng-container>
               </tbody>
@@ -151,4 +159,44 @@
   </body>
 </form>
 
-
+<form>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Selection qualification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="p-3">
+            <ng-container>
+              <div class="form-check">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Designation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container>
+                      <tr>      
+                        <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault">                 
+                        <td>1</td>
+                        <td>C++</td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
