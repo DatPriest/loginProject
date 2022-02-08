@@ -43,7 +43,7 @@ export class EmployeeService {
 
   public postEmployees(employee : Employee) {
     console.log("Trying to post data employee")
-    this.http.post<Employee>('/backend-employees', employee, {
+    this.http.post<Employee>('/backend/employees', employee, {
       headers : new HttpHeaders()
         .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
         .append('Content-Type', `application/json`)

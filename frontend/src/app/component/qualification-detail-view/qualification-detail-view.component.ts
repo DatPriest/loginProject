@@ -23,6 +23,9 @@ export class QualificationDetailViewComponent implements OnInit {
   isAuth(): boolean{
     return this.authentifcationservice.isAuthenticated;
   }
+  toEmployee(){
+    this.router.navigate(['employee']);
+  }
 
   logout(){
     this.authentifcationservice.logout();

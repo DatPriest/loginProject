@@ -14,7 +14,7 @@ export class EmployeeDetailViewComponent implements OnInit {
 
   employees$ : Employee[] = [];
   editEmployee$ : Employee | undefined;
-  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, private router: Router, private app: AppComponent) {
+  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router, private app: AppComponent) {
   }
 
   isAuth(): boolean{

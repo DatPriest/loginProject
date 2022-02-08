@@ -13,7 +13,6 @@ import {Router} from "@angular/router";
 export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   searchTerm: string;
-  searchTerm2: string;
   employees$ : Observable<Employee[]> = of([]);
   constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router) {
     if (this.authentifcationservice.isAuthenticated) {
@@ -37,14 +36,22 @@ export class EmployeeViewComponent implements OnInit {
     this.authentifcationservice.logout();
   }
 
-  deleteEmployee(): void {
-    this.employeeService.deleteEmployee(1);
+  deleteEmployee(id:number): void {
+    this.employeeService.deleteEmployee(id);
+
+    setTimeout(()=>{
+      this.loadEmployees();
+    }, 1000);
   }
 
   detailEmployee(): void {
     this.employeeService.getEmployee(1);
     this.router.navigate(['employee']);
   }
+  addEmployee(){
+    this.router.navigate(['employee/new']);
+  }
+
 
   ngOnInit(): void {
   }

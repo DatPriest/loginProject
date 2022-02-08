@@ -16,6 +16,7 @@ import { QualificationDetailViewComponent } from "./component/qualification-deta
 import { CommonModule } from '@angular/common';
 import {EmployeeFilterPipe} from "./component/employee-view/employee-filter.pipe";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import {EmployeeFilterPipe} from "./component/employee-view/employee-filter.pipe
     QualificationDetailViewComponent,
     EmployeeCreationViewComponent,
     EmployeeDetailViewComponent,
-    EmployeeFilterPipe
+    EmployeeFilterPipe,
 
   ],
   imports: [

@@ -11,7 +11,7 @@ import {count, tap} from 'rxjs';
 })
 export class AuthenticationService {
 
-  private readonly mockeUser = new User('user', 'test');
+  public readonly mockeUser = new User('user', 'test');
   private readonly authUrl = "http://authproxy.szut.dev/";
 
   isAuthenticated = false;
