@@ -5,13 +5,13 @@ import {BearerTokenHolderService} from "../bearer-token-holder.service";
 import {AppComponent} from "../../app.component";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BearerToken } from 'src/app/model/BearerToken';
-import { tap } from 'rxjs';
+import {count, tap} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private readonly mockeUser = new User('user', 'test');
+  public readonly mockeUser = new User('user', 'test');
   private readonly authUrl = "http://authproxy.szut.dev/";
 
   isAuthenticated = false;
@@ -48,8 +48,12 @@ export class AuthenticationService {
         return false;
       }
       else {
-        this.app.loginFailed = "You are bloked";
+        this.app.loginFailed = "You are bloked for 2 min";
         console.log(this.app.loginFailed);
+        this.count++
+        setTimeout(()=>{                           // <<<---using ()=> syntax
+          this.count = 0;
+        }, 120000);
         //alert("you are blocked");
         return false;
       }
@@ -70,17 +74,20 @@ export class AuthenticationService {
   }
 
   login (user: User) {
-    const headers : HttpHeaders = new HttpHeaders(
+    if (this.isAuthenticated == true) {
+
+    const headers: HttpHeaders = new HttpHeaders(
     ).append("Content-Type", "application/x-www-form-urlencoded");
 
     const body = `grant_type=password&client_id=employee-management-service&username=${user.email}&password=${user.password}`;
-    this.http.post<BearerToken>(this.authUrl, body.toString(), {headers} )
-    .pipe(tap({
-      next: (x) => console.log(`Loaded BearerToken .. ${x.access_token}`),
-    }),
-    ).subscribe(data => {
+    this.http.post<BearerToken>(this.authUrl, body.toString(), {headers})
+      .pipe(tap({
+          next: (x) => console.log(`Loaded BearerToken .. ${x.access_token}`),
+        }),
+      ).subscribe(data => {
       this.bearerService.bearer = data;
       this.router.navigate(['employee'])
     });
+  }
   }
 }

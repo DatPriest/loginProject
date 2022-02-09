@@ -43,15 +43,17 @@ export class EmployeeService {
 
   public postEmployees(employee : Employee) {
     console.log("Trying to post data employee")
-    this.http.post<Employee>('/backend-employees', employee, {
+    this.http.post<Employee>('/backend/employees', employee, {
       headers : new HttpHeaders()
         .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
         .append('Content-Type', `application/json`)
     }).pipe(
       tap({
         next: (x) => console.log(`Post Employee .. ${x}`)
-    })).subscribe(data => console.log(data));
+    })
+    ).subscribe(data => console.log(data));
   }
+
 
   public deleteEmployee(id : number) {
     console.log("Trying to delete employee")

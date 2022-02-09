@@ -32,6 +32,9 @@ export class QualificationViewComponent implements OnInit {
   logout(){
     this.authentificationService.logout();
   }
+  toEmployee(){
+    this.router.navigate(['employee']);
+  }
 
   ngOnInit(): void {
   }

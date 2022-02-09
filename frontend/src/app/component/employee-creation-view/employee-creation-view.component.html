@@ -56,27 +56,27 @@
               <input type="ID" class="form-control" id="newEmployeeNewID" placeholder="2" readonly>
             </div>
             <div class="form-floating mb-3">
-              <input type="lastname" class="form-control" id="newEmployeeLastName" placeholder="Bullwinkel">
+              <input type="lastname" class="form-control" id="newEmployeeLastName" placeholder="Bullwinkel" name="lastname" [(ngModel)]="lastname">
               <label for="newEmployeeLastName">Last Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="firstname" class="form-control" id="newEmployeeFirstName" placeholder="Lukas">
+              <input type="firstname" class="form-control" id="newEmployeeFirstName" placeholder="Lukas" name="firstname" [(ngModel)]="firstname">
               <label for="newEmployeeFirstName">First Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="street" class="form-control" id="newEmployeeStreet" placeholder="Malerstraße 3">
+              <input type="street" class="form-control" id="newEmployeeStreet" placeholder="Malerstraße 3" name="street" [(ngModel)]="street">
               <label for="newEmployeeStreet">Street</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="postcode" class="form-control" id="newEmployeePostcode" placeholder="28207">
+              <input type="postcode" class="form-control" id="newEmployeePostcode" placeholder="28207" name="postcode" [(ngModel)]="postcode">
               <label for="newEmployeePostcode">Postecode</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="city" class="form-control" id="newEmployeeCity" placeholder="Bremen">
+              <input type="city" class="form-control" id="newEmployeeCity" placeholder="Bremen" name="city" [(ngModel)]="city">
               <label for="newEmployeeCity">City</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="phone" class="form-control" id="newEmployeePhone" placeholder="01528188936">
+              <input type="phone" class="form-control" id="newEmployeePhone" placeholder="01528188936" name="phone" [(ngModel)]="phone">
               <label for="newEmployeePhone">Phonenumber</label>
             </div>
           </div>
@@ -110,8 +110,8 @@
         <div class="p-5">
           <div class="d-flex flex-row-reverse">
             <div class="d-grid gap-2 d-md-flex">
-              <a class="btn btn-secondary" href="employee" role="button">Save</a>
-              <a class="btn btn-secondary" href="employee" role="button">Cancel</a>
+              <a class="btn btn-secondary" (click)="addEmployee()" role="button">Save</a>
+              <a class="btn btn-secondary" (click)="cancelNewEmployyView()" role="button">Cancel</a>
             </div>
           </div>
         </div>
