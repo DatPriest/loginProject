@@ -19,7 +19,9 @@ export class EmployeeService {
 
     console.log(`Loading Employees...\n BearerToken: ${this.bearerService.bearer.access_token}`)
     return this.http.get<Employee[]>('/backend/employees', {
-      headers : new HttpHeaders().append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`).append('Content-Type', `application/json`)
+      headers : new HttpHeaders()
+        .append('Authorization', `Bearer ${this.bearerService.bearer.access_token}`)
+        .append('Content-Type', `application/json`)
     }).pipe(
       tap({
         next: (x) => console.log(`Loaded Employee .. Length: ${x.length}`)
