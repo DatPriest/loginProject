@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-qualification-creation-view',
@@ -9,7 +10,9 @@ import {Router} from "@angular/router";
 })
 export class QualificationCreationViewComponent implements OnInit {
 
-  constructor(private authentifcationservice: AuthenticationService, private router: Router) { }
+  constructor(private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {
+    this.app.header = 2;
+  }
 
   isAuth(): boolean{
     return this.authentifcationservice.isAuthenticated;

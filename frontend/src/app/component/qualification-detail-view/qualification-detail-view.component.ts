@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Qualification} from "../../model/Qualification";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-qualification-detail-view',
@@ -11,13 +12,8 @@ import {Router} from "@angular/router";
 export class QualificationDetailViewComponent implements OnInit {
 
   qualifications$ : Qualification[] = [];
-  constructor(private authentifcationservice: AuthenticationService, private router: Router) {
-    this.qualifications$.push(new Qualification(1,"C++"));
-    this.qualifications$.push(new Qualification(2,"Rust"));
-    this.qualifications$.push(new Qualification(3,"Javascript"));
-    this.qualifications$.push(new Qualification(4,"Python"));
-    this.qualifications$.push(new Qualification(5,"HTML"));
-    this.qualifications$.push(new Qualification(6,"TypeScript"));
+  constructor(private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {
+    this.app.header = 2;
   }
 
   isAuth(): boolean{

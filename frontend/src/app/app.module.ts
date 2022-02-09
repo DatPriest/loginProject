@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { LoginViewComponent } from './component/login-view/login-view.component';
 import { EmployeeViewComponent } from './component/employee-view/employee-view.component';
-import { BearerTokenHolderService } from './service/bearer-token-holder.service';
-import { EmployeeService } from './service/employee.service';
+import { BearerTokenHolderService } from './service/bearer-token/bearer-token-holder.service';
+import { EmployeeService } from './service/employee/employee.service';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { QualificationViewComponent } from "./component/qualification-view/qualification-view.component";
@@ -14,8 +14,8 @@ import { EmployeeDetailViewComponent } from "./component/employee-detail-view/em
 import { QualificationCreationViewComponent } from "./component/qualification-creation-view/qualification-creation-view.component";
 import { QualificationDetailViewComponent } from "./component/qualification-detail-view/qualification-detail-view.component";
 import { CommonModule } from '@angular/common';
-import {EmployeeFilterPipe} from "./component/employee-view/employee-filter.pipe";
-
+import { EmployeeFilterPipe } from "./component/employee-view/employee-filter.pipe";
+import { HeaderViewComponent } from './component/header-view/header-view.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import {EmployeeFilterPipe} from "./component/employee-view/employee-filter.pipe
     EmployeeCreationViewComponent,
     EmployeeDetailViewComponent,
     EmployeeFilterPipe,
+    HeaderViewComponent
 
   ],
   imports: [

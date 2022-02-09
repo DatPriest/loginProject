@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
-import {EmployeeService} from "../../service/employee.service";
+import { EmployeeService } from 'src/app/service/employee/employee.service';
 import {Employee} from "../../model/Employee";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-employee-creation-view',
   templateUrl: './employee-creation-view.component.html',
   styleUrls: ['./employee-creation-view.component.css']
 })
-export class EmployeeCreationViewComponent implements OnInit {
+export class EmployeeCreationViewComponent {
   lastname: string;
   firstname: string;
   street: string;
@@ -19,9 +20,12 @@ export class EmployeeCreationViewComponent implements OnInit {
   constructor(
     private authentifcationService: AuthenticationService,
     private router: Router,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService,
+    private app : AppComponent) {
+      this.app.header = 1;
+     }
 
-  isAuth(): boolean {
+  isAuth(): boolean{
     return this.authentifcationService.isAuthenticated;
   }
 
