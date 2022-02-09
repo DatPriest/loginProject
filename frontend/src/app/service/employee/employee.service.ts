@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, Subject, tap } from 'rxjs';
-import { Employee } from '../model/Employee';
-import { BearerTokenHolderService } from './bearer-token-holder.service';
-import { DatabaseConnectorService } from './database-connector.service';
+import { Employee } from '../../model/Employee';
+import { BearerTokenHolderService } from '../bearer-token/bearer-token-holder.service';
+import { DatabaseConnectorService } from '../database/database-connector.service';
 @Injectable({
   providedIn: 'root'
 })

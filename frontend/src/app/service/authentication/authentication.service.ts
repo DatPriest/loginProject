@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from "../../model/User";
 import {Router} from "@angular/router";
-import {BearerTokenHolderService} from "../bearer-token-holder.service";
+import {BearerTokenHolderService} from "../bearer-token/bearer-token-holder.service";
 import {AppComponent} from "../../app.component";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BearerToken } from 'src/app/model/BearerToken';

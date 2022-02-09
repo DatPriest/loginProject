@@ -4,7 +4,7 @@ import { User } from "../../model/User";
 import { Router} from "@angular/router";
 import { HttpClient} from "@angular/common/http";
 import { FormBuilder, FormGroup, NgForm } from "@angular/forms";
-import { BearerTokenHolderService } from "../../service/bearer-token-holder.service";
+import { BearerTokenHolderService } from 'src/app/service/bearer-token/bearer-token-holder.service';
 import { AuthenticationService } from "../../service/authentication/authentication.service";
 
 

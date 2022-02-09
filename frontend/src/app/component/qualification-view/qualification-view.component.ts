@@ -4,7 +4,7 @@ import {AppComponent} from "../../app.component";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
 import { Observable, of } from 'rxjs';
-import { QualificationService } from 'src/app/qualification.service';
+import { QualificationService } from 'src/app/service/qualification/qualification.service';
 
 
 @Component({
@@ -19,8 +19,9 @@ export class QualificationViewComponent implements OnInit {
     private authentificationService: AuthenticationService,
     public router: Router,
     private qualificationService : QualificationService,
-    private app : AppComponent
+    public app : AppComponent
     ) {
+    this.app.header = 2;
     console.log(app.user?.email);
     this.qualifications$ = this.qualificationService.getQualification()
   }

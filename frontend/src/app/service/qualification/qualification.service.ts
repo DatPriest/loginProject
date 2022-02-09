@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Qualification } from './model/Qualification';
-import { BearerTokenHolderService } from './service/bearer-token-holder.service';
+import { Qualification } from '../../model/Qualification';
+import { BearerTokenHolderService } from '../bearer-token/bearer-token-holder.service';
 
 @Injectable({
   providedIn: 'root'

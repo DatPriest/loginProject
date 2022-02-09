@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from "../../model/Employee";
-import {EmployeeService} from "../../service/employee.service";
+import {EmployeeService} from "../../service/employee/employee.service";
 import {AuthenticationService} from "../../service/authentication/authentication.service";
 import {Router} from "@angular/router";
 import {AppComponent} from "../../app.component";
@@ -14,7 +14,8 @@ export class EmployeeDetailViewComponent implements OnInit {
 
   employees$ : Employee[] = [];
   editEmployee$ : Employee | undefined;
-  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router, private app: AppComponent) {
+  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {
+    this.app.header = 1;
   }
 
   isAuth(): boolean{

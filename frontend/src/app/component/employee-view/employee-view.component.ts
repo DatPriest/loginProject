@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { Employee } from 'src/app/model/Employee';
-import { EmployeeService } from 'src/app/service/employee.service';
+import { EmployeeService } from 'src/app/service/employee/employee.service';
 import { AuthenticationService} from "src/app/service/authentication/authentication.service";
 import {Router} from "@angular/router";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-employee-view',
@@ -14,11 +15,16 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   searchTerm: string;
   employees$ : Observable<Employee[]> = of([]);
-  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router) {
+  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {
+    this.app.header = 1;
     if (this.authentifcationservice.isAuthenticated) {
       this.loadEmployees();
     } else
     this.router.navigate(["/"])
+  }
+
+  header(){
+    this.app.header = 1;
   }
 
   loadEmployees() {
