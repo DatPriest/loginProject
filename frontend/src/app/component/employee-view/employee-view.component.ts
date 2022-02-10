@@ -50,10 +50,6 @@ export class EmployeeViewComponent implements OnInit {
     return this.authenticationService.isLoggedIn("employee");
   }
 
-  logout(){
-    this.authenticationService.logout();
-  }
-
   deleteEmployee(id:number): void {
     this.employeeService.deleteEmployee(id).subscribe(eData => {
       console.log(`Employee got deleted: \n id: ${eData.id} \n name: ${eData.lastName}`)

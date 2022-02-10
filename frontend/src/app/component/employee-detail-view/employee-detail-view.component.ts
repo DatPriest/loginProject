@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../service/authentication/authentication
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppComponent} from "../../app.component";
 import { Qualification } from 'src/app/model/Qualification';
-import { empty, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { QualificationService } from 'src/app/service/qualification/qualification.service';
 import { FormGroup } from '@angular/forms';
 import { QualificationSelectionComponent } from '../qualification-selection/qualification-selection.component';
@@ -35,10 +35,6 @@ export class EmployeeDetailViewComponent implements OnInit {
 
   isAuth(): boolean{
     return this.authenticationService.isLoggedIn("employee/detail");
-  }
-
-  logout(){
-    this.authenticationService.logout();
   }
 
   editEmployee(): boolean {
