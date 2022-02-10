@@ -13,7 +13,7 @@ import { QualificationService } from 'src/app/service/qualification/qualificatio
   styleUrls: ['./qualification-view.component.css']
 })
 export class QualificationViewComponent implements OnInit {
-
+  searchTerm: string;
   qualifications$ : Observable<Qualification[]> = of([]);
   counter : number;
   constructor(
