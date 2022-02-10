@@ -41,14 +41,6 @@ export class EmployeeDetailViewComponent implements OnInit {
     return false;
   }
 
-  switchDarkMode(b: boolean) {
-    if (b = false) {
-      this.app.darkMode = false;
-    } else {
-      this.app.darkMode = true;
-    }
-  }
-
   deleteEmployee(): void {
     this.router.navigate(['employee']);
     this.employeeService.deleteEmployee(1);
