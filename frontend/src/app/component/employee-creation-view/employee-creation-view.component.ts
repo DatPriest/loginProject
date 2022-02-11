@@ -49,7 +49,7 @@ export class EmployeeCreationViewComponent {
         this.router.navigate(['employee']);
       })
   }
-  cancelNewEmployyView() {
+  cancelNewEmployeeView() {
     this.employeeService.getEmployees().subscribe(_ => {
       this.router.navigate(['employee']);
     })

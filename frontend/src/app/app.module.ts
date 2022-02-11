@@ -46,7 +46,7 @@ import {QualificationFilterPipe} from "./component/qualification-view/qualificat
       {path: '', component: LoginViewComponent},
       {path: 'employee', component:EmployeeViewComponent},
       {path: 'employee/new', component:EmployeeCreationViewComponent},
-      {path: 'employee/detail/:id', component:EmployeeDetailViewComponent},
+      {path: 'employee/detail', component:EmployeeDetailViewComponent},
       {path: 'qualification', component:QualificationViewComponent},
       {path: 'qualification/new', component:QualificationCreationViewComponent},
       {path: 'qualification/detail', component:QualificationDetailViewComponent}

@@ -16,12 +16,16 @@ export class QualificationViewComponent implements OnInit {
   searchTerm: string;
   qualifications$ : Observable<Qualification[]> = of([]);
   counter : number;
+  qualificationList : Selection[];
+
   constructor(
     private authenticationService: AuthenticationService,
     public router: Router,
     private qualificationService : QualificationService,
     public app : AppComponent
     ) {
+    this.qualificationList = [];
+
     this.counter = 0;
 
     this.app.header = 2;
@@ -42,10 +46,20 @@ export class QualificationViewComponent implements OnInit {
     this.router.events.subscribe(() => {
       this.qualifications$ = this.qualificationService.getQualifications();
     });
+
+    this.qualificationService.getQualifications().subscribe(qData => qData.forEach((v, i) => {
+      this.qualificationList.push(new Selection(i, v, false));
+    }));
   }
 
   detailQualification(qualification : Qualification) {
     this.router.navigate(['qualification/detail', qualification]);
   }
 
+}
+
+
+class Selection {
+
+  constructor(public index : number, public qualification : Qualification, public checked : boolean) {}
 }
