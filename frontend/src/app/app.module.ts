@@ -18,6 +18,7 @@ import { EmployeeFilterPipe } from "./component/employee-view/employee-filter.pi
 import { HeaderViewComponent } from './component/header-view/header-view.component';
 import { AuthenticationService } from './service/authentication/authentication.service';
 import { SelectionQualificationViewComponent } from './component/selection-qualification-view/selection-qualification-view.component';
+import {QualificationFilterPipe} from "./component/qualification-view/qualification-view-filter.pipe";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SelectionQualificationViewComponent } from './component/selection-quali
     EmployeeFilterPipe,
     HeaderViewComponent,
     SelectionQualificationViewComponent,
+    QualificationFilterPipe,
 
   ],
   imports: [
@@ -44,7 +46,7 @@ import { SelectionQualificationViewComponent } from './component/selection-quali
       {path: '', component: LoginViewComponent},
       {path: 'employee', component:EmployeeViewComponent},
       {path: 'employee/new', component:EmployeeCreationViewComponent},
-      {path: 'employee/detail', component:EmployeeDetailViewComponent},
+      {path: 'employee/detail/:id', component:EmployeeDetailViewComponent},
       {path: 'qualification', component:QualificationViewComponent},
       {path: 'qualification/new', component:QualificationCreationViewComponent},
       {path: 'qualification/detail', component:QualificationDetailViewComponent}

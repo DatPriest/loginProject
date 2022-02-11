@@ -12,8 +12,8 @@ import { AppComponent } from "../../app.component";
   styleUrls: ['./employee-view.component.css']
 })
 export class EmployeeViewComponent implements OnInit {
-  employees : Employee[] = [];
   searchTerm: string;
+  employeeID :number;
   employees$ : Observable<Employee[]> = of([]);
   constructor(
     private employeeService: EmployeeService,
