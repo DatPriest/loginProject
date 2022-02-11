@@ -92,7 +92,7 @@ export class AuthenticationService implements OnInit{
   }
 
   private checkCredentials (signInData : User): boolean{
-    return this.checkEmail(signInData.getEmail()) && this.checkPassword(signInData.getPassword());
+    return (this.checkEmail(signInData.email) && this.checkPassword(signInData.password));
   }
   private checkEmail(email: string): boolean {
     return email === this.mockUser.getEmail();

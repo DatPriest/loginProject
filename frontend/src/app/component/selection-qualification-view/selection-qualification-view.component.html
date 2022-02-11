@@ -19,19 +19,19 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <ng-container *ngFor="let q of qualifications$ | async">
+                  <ng-container *ngFor="let q of qualificationSet | async">
                     <tr>
                       <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-center">
                           <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault">
                         </div>
                       </td>
-                      <td>{{q.id}}</td>
+                      <td>Q{{count}}</td>
                       <td>{{q.designation}}</td>
                     </tr>
                   </ng-container>
                   <!-- Wenn "new" gedrückt wird -->
-                  <ng-container *nfIf="!createNewQualification()">
+                  <ng-container *ngIf="!createNewQualification()">
                     <tr>
                       <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-center">

@@ -8,7 +8,6 @@ import { Qualification } from 'src/app/model/Qualification';
 import { Observable, of } from 'rxjs';
 import { QualificationService } from 'src/app/service/qualification/qualification.service';
 import { FormGroup } from '@angular/forms';
-import { QualificationSelectionComponent } from '../qualification-selection/qualification-selection.component';
 
 @Component({
   selector: 'app-employee-detail-view',
@@ -30,8 +29,7 @@ export class EmployeeDetailViewComponent implements OnInit {
     public router: Router,
     public app: AppComponent,
     public route: ActivatedRoute,
-    public qualificationService : QualificationService,
-    private qualificationSelection : QualificationSelectionComponent) {
+    public qualificationService : QualificationService) {
     this.app.header = 1;
   }
 
