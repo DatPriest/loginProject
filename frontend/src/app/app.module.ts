@@ -57,7 +57,8 @@ import {QualificationFilterPipe} from "./component/qualification-view/qualificat
     AppComponent,
     AuthenticationService,
     SelectionQualificationViewComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SelectionQualificationViewComponent]
 })
 export class AppModule {
 
