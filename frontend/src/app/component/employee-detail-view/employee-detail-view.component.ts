@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../service/authentication/authentication
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppComponent} from "../../app.component";
 import { Qualification } from 'src/app/model/Qualification';
-import { empty, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { QualificationService } from 'src/app/service/qualification/qualification.service';
 import { FormGroup } from '@angular/forms';
 import { QualificationSelectionComponent } from '../qualification-selection/qualification-selection.component';
@@ -18,6 +18,8 @@ import { QualificationSelectionComponent } from '../qualification-selection/qual
 export class EmployeeDetailViewComponent implements OnInit {
 
   count = 0;
+  lastname = false;
+  firstname = false;
   employee : Employee;
   editEmployee$ : Employee | undefined;
   employeeQualificationSkillset : Observable<Qualification[]> = of();
@@ -37,20 +39,24 @@ export class EmployeeDetailViewComponent implements OnInit {
     return this.authenticationService.isLoggedIn("employee/detail");
   }
 
-  logout(){
-    this.authenticationService.logout();
+  editLastNameEmployee(): void {
+     this.lastname = true;
   }
-
-  editEmployee(): boolean {
-    return false;
-  }
-
-  switchDarkMode(b: boolean) {
-    if (b = false) {
-      this.app.darkMode = false;
-    } else {
-      this.app.darkMode = true;
+  toEditLastNameEmployee(): boolean {
+    if (this.firstname == true) {
+      this.firstname = false;
     }
+    return this.lastname;
+  }
+
+  editFirstNameEmployee(): void {
+    this.firstname = true;
+  }
+  toEditFirstNameEmployee(): boolean {
+    if (this.lastname == true) {
+      this.lastname = false;
+    }
+    return this.firstname;
   }
 
   deleteEmployee(): void {

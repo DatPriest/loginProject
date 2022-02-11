@@ -7,78 +7,116 @@
       <div class="row">
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-            <p><font size="6" >ID:</font></p>
-            <p><font size="6" >Last name:</font></p>
-            <p><font size="6">First name:</font></p>
-            <p><font size="6">Street:</font></p>
-            <p><font size="6">Postcode:</font></p>
-            <p><font size="6">City:</font></p>
-            <p><font size="6">Phone:</font></p>
+            <ng-container>
+              <p>
+                <font size="6" >ID:</font>
+              </p>
+              <p>
+                <font size="6" >Last name:</font>
+              </p>
+              <p>
+                <font size="6">First name:</font>
+              </p>
+              <p>
+                <font size="6">Street:</font>
+              </p>
+              <p>
+                <font size="6">Zip code:</font>
+              </p>
+              <p>
+                <font size="6">City:</font>
+              </p>
+              <p>
+                <font size="6">Phone:</font>
+              </p>
+            </ng-container>
           </div>
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-            <div class="form-floating mb-3">
-              <input type="ID" class="form-control" id="newEmployeeNewID" placeholder="2" readonly value="0">
-            </div>
-            <div class="form-floating mb-3">
-              <input type="lastname" class="form-control" id="newEmployeeLastName" placeholder="Bullwinkel" name="lastname" [(ngModel)]="lastname">
-              <label for="newEmployeeLastName">Last Name</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="firstname" class="form-control" id="newEmployeeFirstName" placeholder="Lukas" name="firstname" [(ngModel)]="firstname">
-              <label for="newEmployeeFirstName">First Name</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="street" class="form-control" id="newEmployeeStreet" placeholder="Malerstraße 3" name="street" [(ngModel)]="street">
-              <label for="newEmployeeStreet">Street</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="postcode" class="form-control" id="newEmployeePostcode" placeholder="28207" name="postcode" [(ngModel)]="postcode">
-              <label for="newEmployeePostcode">Postecode</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="city" class="form-control" id="newEmployeeCity" placeholder="Bremen" name="city" [(ngModel)]="city">
-              <label for="newEmployeeCity">City</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="phone" class="form-control" id="newEmployeePhone" placeholder="01528188936" name="phone" [(ngModel)]="phone">
-              <label for="newEmployeePhone">Phonenumber</label>
-            </div>
+            <ng-container>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="ID" class="form-control" id="newEmployeeNewID" placeholder="2" readonly value="0">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeeLastName" placeholder="Mustermann" name="lastname" [(ngModel)]="lastname">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeeFirstName" placeholder="Max" name="firstname" [(ngModel)]="firstname">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeeStreet" placeholder="Meta-Sattler-Straße 33" name="street" [(ngModel)]="street">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeePostcode" placeholder="27823" name="postcode" [(ngModel)]="postcode">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeeCity" placeholder="Bremen" name="city" [(ngModel)]="city">
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control form-control-lg" id="newEmployeePhone" placeholder="016209218323" name="phone" [(ngModel)]="phone">
+                </div>
+              </div>
+            </ng-container>
           </div>
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-            <div class="container-fluid">
-              <table class="table table-striped table-hover">
-                <thead class="table-dark">
+            <table class="table table-striped table-hover">
+              <thead class="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Designation</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <ng-container>
                 <tr>
-                  <th>ID</th>
-                  <th>Designation</th>
-                  <th></th>
+                  <td>Q1</td>
+                  <td>C++</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                    </button>
+                  </td>
                 </tr>
-                </thead>
-                <tbody>
-                <ng-container>
-                  <tr>
-                    <td>Q1</td>
-                    <td>C++</td>
-                    <td><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-                    </svg></button></td>
-                  </tr>
-                </ng-container>
-                </tbody>
-              </table>
-            </div>
+              </ng-container>
+              <app-selection-qualification-view></app-selection-qualification-view>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="p-5">
           <div class="d-flex flex-row-reverse">
             <div class="d-grid gap-2 d-md-flex">
-              <a class="btn btn-secondary" (click)="addEmployee()" role="button">Save</a>
-              <a class="btn btn-secondary" (click)="cancelNewEmployeeView()" role="button">Cancel</a>
+              <a class="btn btn-outline-dark" (click)="addEmployee()" role="button" data-toggle="tooltip" data-placement="top" title="Save">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                  <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                  <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                </svg>
+              </a>
+              <a class="btn btn-outline-dark" (click)="cancelNewEmployeeView()" role="button" data-toggle="tooltip" data-placement="top" title="Back without Save">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+                  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
