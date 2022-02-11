@@ -18,6 +18,8 @@ import { QualificationSelectionComponent } from '../qualification-selection/qual
 export class EmployeeDetailViewComponent implements OnInit {
 
   count = 0;
+  lastname = false;
+  firstname = false;
   employee : Employee;
   editEmployee$ : Employee | undefined;
   employeeQualificationSkillset : Observable<Qualification[]> = of();
@@ -37,8 +39,24 @@ export class EmployeeDetailViewComponent implements OnInit {
     return this.authenticationService.isLoggedIn("employee/detail");
   }
 
-  editEmployee(): boolean {
-    return false;
+  editLastNameEmployee(): void {
+     this.lastname = true;
+  }
+  toEditLastNameEmployee(): boolean {
+    if (this.firstname == true) {
+      this.firstname = false;
+    }
+    return this.lastname;
+  }
+
+  editFirstNameEmployee(): void {
+    this.firstname = true;
+  }
+  toEditFirstNameEmployee(): boolean {
+    if (this.lastname == true) {
+      this.lastname = false;
+    }
+    return this.firstname;
   }
 
   deleteEmployee(): void {
