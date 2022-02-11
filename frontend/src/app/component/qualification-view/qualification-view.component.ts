@@ -38,6 +38,10 @@ export class QualificationViewComponent implements OnInit {
     return this.counter;
   }
 
+  logout(){
+    this.authenticationService.logout();
+  }
+
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       this.qualifications$ = this.qualificationService.getQualifications();

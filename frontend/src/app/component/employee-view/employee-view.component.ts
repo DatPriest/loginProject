@@ -39,6 +39,10 @@ export class EmployeeViewComponent implements OnInit {
     })
   }
 
+  header(){
+    this.app.header = 1;
+  }
+
   loadEmployees() {
     //this.employeeService.postEmployees(new Employee(6,'aboush','haneef','wilhel','27753','del','32432'));
     this.employees$ = this.employeeService.getEmployees();
@@ -48,6 +52,10 @@ export class EmployeeViewComponent implements OnInit {
 
   isAuth(): boolean{
     return this.authenticationService.isLoggedIn("employee");
+  }
+
+  logout(){
+    this.authenticationService.logout();
   }
 
   deleteEmployee(id:number): void {

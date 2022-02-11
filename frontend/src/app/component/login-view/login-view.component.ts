@@ -33,6 +33,14 @@ export class LoginViewComponent implements OnInit {
 
   }
 
+  // ErrorWindow() {
+  //   if (this.authenticationService.isAuthenticated == false) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       name:[''],

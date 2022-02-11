@@ -34,6 +34,9 @@ export class EmployeeCreationViewComponent {
     return this.authenticationService.isLoggedIn("employee/new");
   }
 
+  logout() {
+    this.authenticationService.logout();
+  }
   addEmployee() {
     this.employeeService.postEmployee(
       new Employee(
