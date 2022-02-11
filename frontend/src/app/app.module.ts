@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
 import { EmployeeFilterPipe } from "./component/employee-view/employee-filter.pipe";
 import { HeaderViewComponent } from './component/header-view/header-view.component';
 import { AuthenticationService } from './service/authentication/authentication.service';
-import { QualificationSelectionComponent } from './component/qualification-selection/qualification-selection.component';
 import { SelectionQualificationViewComponent } from './component/selection-qualification-view/selection-qualification-view.component';
 
 @NgModule({
@@ -51,7 +50,11 @@ import { SelectionQualificationViewComponent } from './component/selection-quali
       {path: 'qualification/detail', component:QualificationDetailViewComponent}
     ])
   ],
-  providers: [BearerTokenHolderService, EmployeeService, AppComponent, AuthenticationService, QualificationSelectionComponent],
+  providers: [BearerTokenHolderService,
+    EmployeeService,
+    AppComponent,
+    AuthenticationService,
+    SelectionQualificationViewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

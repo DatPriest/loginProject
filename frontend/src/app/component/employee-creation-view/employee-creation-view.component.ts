@@ -4,8 +4,8 @@ import {Router} from "@angular/router";
 import { EmployeeService } from 'src/app/service/employee/employee.service';
 import {Employee} from "../../model/Employee";
 import {AppComponent} from "../../app.component";
-import { QualificationSelectionComponent } from '../qualification-selection/qualification-selection.component';
 import { QualificationService } from 'src/app/service/qualification/qualification.service';
+import { SelectionQualificationViewComponent } from '../selection-qualification-view/selection-qualification-view.component';
 
 @Component({
   selector: 'app-employee-creation-view',
@@ -24,8 +24,8 @@ export class EmployeeCreationViewComponent {
     private router: Router,
     private employeeService: EmployeeService,
     private app : AppComponent,
-    private qualificationSelection : QualificationSelectionComponent,
-    private qualificationService : QualificationService
+    private qualificationService : QualificationService,
+    private qualificationSelection : SelectionQualificationViewComponent
     ) {
       this.app.header = 1;
      }
@@ -57,7 +57,7 @@ export class EmployeeCreationViewComponent {
 
 
   ngOnInit(): void {
-      this.qualificationSelection.qualificationSet = this.qualificationService.getQualifications()
+      this.qualificationSelection.qualificationSet = this.qualificationService.getQualifications();
 
   }
 
