@@ -2,7 +2,7 @@
   <header>
     <app-header-view></app-header-view>
   </header>
-  <body>
+  <body *ngIf="isAuth()">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4 col-md-2">
@@ -14,9 +14,7 @@
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-            <ng-container *ngFor="let q of qualifications$">
-              <p><font size="6">{{q.designation}}</font></p>
-            </ng-container>
+              <p><font size="6">{{qualification.designation}}</font></p>
           </div>
         </div>
           <div class="p-5">
@@ -29,7 +27,7 @@
                 </tr>
               </thead>
               <tbody>
-                <ng-container>
+                <ng-container *ngFor="let e of employees | async">
                   <tr>
                     <td>E1</td>
                     <td>Bullwinkel</td>
@@ -43,7 +41,7 @@
           <div class="d-flex flex-row-reverse">
             <div class="d-grid gap-2 d-md-flex">
               <a class="btn btn-secondary" (click)="router.navigate(['qualification'])" role="button">Back</a>
-              <a class="btn btn-secondary" (click)="router.navigate(['qualification'])" role="button">Delete</a>
+              <a class="btn btn-secondary" (click)="deleteQualification()" role="button">Delete</a>
             </div>
           </div>
         </div>

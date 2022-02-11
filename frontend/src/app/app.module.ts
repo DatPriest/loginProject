@@ -16,19 +16,23 @@ import { QualificationDetailViewComponent } from "./component/qualification-deta
 import { CommonModule } from '@angular/common';
 import { EmployeeFilterPipe } from "./component/employee-view/employee-filter.pipe";
 import { HeaderViewComponent } from './component/header-view/header-view.component';
+import { AuthenticationService } from './service/authentication/authentication.service';
+import { QualificationSelectionComponent } from './component/qualification-selection/qualification-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginViewComponent,
     EmployeeViewComponent,
-    QualificationCreationViewComponent,
     QualificationViewComponent,
     QualificationDetailViewComponent,
     EmployeeCreationViewComponent,
     EmployeeDetailViewComponent,
     EmployeeFilterPipe,
-    HeaderViewComponent
+    HeaderViewComponent,
+    QualificationSelectionComponent,
+    QualificationCreationViewComponent,
+
 
   ],
   imports: [
@@ -38,7 +42,7 @@ import { HeaderViewComponent } from './component/header-view/header-view.compone
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot([
-      {path: '',component: LoginViewComponent},
+      {path: '', component: LoginViewComponent},
       {path: 'employee', component:EmployeeViewComponent},
       {path: 'employee/new', component:EmployeeCreationViewComponent},
       {path: 'employee/detail', component:EmployeeDetailViewComponent},
@@ -47,7 +51,7 @@ import { HeaderViewComponent } from './component/header-view/header-view.compone
       {path: 'qualification/detail', component:QualificationDetailViewComponent}
     ])
   ],
-  providers: [BearerTokenHolderService, EmployeeService, AppComponent],
+  providers: [BearerTokenHolderService, EmployeeService, AppComponent, AuthenticationService, QualificationSelectionComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -15,29 +15,41 @@ import { QualificationService } from 'src/app/service/qualification/qualificatio
 export class QualificationViewComponent implements OnInit {
 
   qualifications$ : Observable<Qualification[]> = of([]);
+  counter : number;
   constructor(
-    private authentificationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     public router: Router,
     private qualificationService : QualificationService,
     public app : AppComponent
     ) {
+    this.counter = 0;
+
     this.app.header = 2;
-    console.log(app.user?.email);
-    this.qualifications$ = this.qualificationService.getQualification()
+    if (this.isAuth())
+      this.qualifications$ = this.qualificationService.getQualifications()
   }
 
-  isAuth(): boolean{
-    return this.authentificationService.isAuthenticated;
+  isAuth(): boolean {
+    return this.authenticationService.isLoggedIn("qualification");
+  }
+
+  addCounter() : number {
+    this.counter++;
+    return this.counter;
   }
 
   logout(){
-    this.authentificationService.logout();
-  }
-  toEmployee(){
-    this.router.navigate(['employee']);
+    this.authenticationService.logout();
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.qualifications$ = this.qualificationService.getQualifications();
+    });
+  }
+
+  detailQualification(qualification : Qualification) {
+    this.router.navigate(['qualification/detail', qualification]);
   }
 
 }

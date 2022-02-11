@@ -13,7 +13,7 @@ export class BearerTokenHolderService implements OnInit{
   bearer: BearerToken = new BearerToken();
 
   ngOnInit(): void {
-    console.log("I've got new initialized")
+    console.log("I've got new initialized");
   }
 
 

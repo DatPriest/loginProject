@@ -1,6 +1,9 @@
-export  class User {
+import { BearerToken } from "./BearerToken";
+
+export class User {
   public email: string;
-  public password: string
+  public password: string;
+  public bearerToken?: BearerToken
 
   constructor(
     email: string,
@@ -9,11 +12,11 @@ export  class User {
     this.password = password;
   }
 
-  getEmail(): string {
+  public getEmail(): string {
     return this.email;
   }
 
-  getPassword(): string {
+  public getPassword(): string {
     return this.password;
   }
 }

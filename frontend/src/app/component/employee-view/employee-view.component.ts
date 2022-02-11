@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 import { Employee } from 'src/app/model/Employee';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
-import { AuthenticationService} from "src/app/service/authentication/authentication.service";
-import {Router} from "@angular/router";
-import {AppComponent} from "../../app.component";
+import { AuthenticationService } from "src/app/service/authentication/authentication.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'app-employee-view',
@@ -15,12 +15,28 @@ export class EmployeeViewComponent implements OnInit {
   employees : Employee[] = [];
   searchTerm: string;
   employees$ : Observable<Employee[]> = of([]);
-  constructor(private employeeService: EmployeeService, private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {
+  constructor(
+    private employeeService: EmployeeService,
+    private authenticationService: AuthenticationService,
+    public router: Router,
+    public app: AppComponent,
+    public route : ActivatedRoute
+  ) {
     this.app.header = 1;
-    if (this.authentifcationservice.isAuthenticated) {
+    if (this.authenticationService.isLoggedIn("employee")) {
+      console.log("Thats true")
       this.loadEmployees();
-    } else
-    this.router.navigate(["/"])
+    } else {
+      console.log("navigating to logout")
+      this.router.navigate(["/"])
+
+    }
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.loadEmployees();
+    })
   }
 
   header(){
@@ -35,32 +51,32 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   isAuth(): boolean{
-    return this.authentifcationservice.isAuthenticated;
+    return this.authenticationService.isLoggedIn("employee");
   }
 
   logout(){
-    this.authentifcationservice.logout();
+    this.authenticationService.logout();
   }
 
   deleteEmployee(id:number): void {
-    this.employeeService.deleteEmployee(id);
+    this.employeeService.deleteEmployee(id).subscribe(eData => {
+      console.log(`Employee got deleted: \n id: ${eData.id} \n name: ${eData.lastName}`)
+    });
 
     setTimeout(()=>{
       this.loadEmployees();
     }, 1000);
   }
 
-  detailEmployee(): void {
-    this.router.navigate(['employee/detail']);
-    this.employeeService.getEmployee(1);
-    this.router.navigate(['employee']);
+  detailEmployee(id: number): void {
+    this.employeeService.getEmployeeById(id).subscribe(data => this.router.navigate(['employee/detail', data]));
+    //this.router.navigate(['employee']);
   }
-  addEmployee(){
+  addEmployee() {
     this.router.navigate(['employee/new']);
   }
 
 
-  ngOnInit(): void {
-  }
+
 
 }

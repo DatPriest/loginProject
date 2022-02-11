@@ -2,7 +2,7 @@
   <header>
     <app-header-view></app-header-view>
   </header>
-  <body>
+  <body *ngIf="isAuth()">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4 col-md-2">
@@ -14,14 +14,14 @@
         <div class="col-md-4 col-md-2">
           <div class="p-5">
             <p><input class="form-control" id="newQualificationID" type="number" readonly></p>
-            <p><font size="9"><input class="form-control" id="newDesignation" type="string"></font></p>
+            <p><font size="9"><input class="form-control" id="newDesignation" type="string" [(ngModel)] ="designation" name="designation"></font></p>
           </div>
         </div>
         <div class="p-5">
           <div class="d-flex flex-row-reverse">
             <div class="d-grid gap-2 d-md-flex">
               <a class="btn btn-secondary" (click)="router.navigate(['qualification'])" role="button">Back</a>
-              <a class="btn btn-secondary" (click)="router.navigate(['qualification'])" role="button">Delete</a>
+              <a class="btn btn-secondary" (click)="saveQualification()" role="button">save</a>
             </div>
           </div>
         </div>

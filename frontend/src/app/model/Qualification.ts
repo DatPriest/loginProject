@@ -1,5 +1,4 @@
 export class Qualification {
-  constructor(public id?: number,
-              public designation?: string) {
+  constructor(public designation?: string) {
   }
 }

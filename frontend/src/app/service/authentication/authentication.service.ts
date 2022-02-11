@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {User} from "../../model/User";
 import {Router} from "@angular/router";
 import {BearerTokenHolderService} from "../bearer-token/bearer-token-holder.service";
@@ -9,13 +9,13 @@ import {count, tap} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService implements OnInit{
 
-  public readonly mockeUser = new User('user', 'test');
+  public readonly mockUser = new User('user', 'test');
   private readonly authUrl = "http://authproxy.szut.dev/";
 
-  isAuthenticated = false;
-  count = 0;
+  private isAuthenticated : boolean
+  loginAttempt = 0;
   constructor(
     private router : Router,
     private bearerService: BearerTokenHolderService,
@@ -23,71 +23,112 @@ export class AuthenticationService {
     private http: HttpClient
     ) { }
 
-  authenticate(signInData: User): boolean{
-    if(this.checkCredentials(signInData)){
-      if(this.count <= 2){
-        this.isAuthenticated = true;
-        this.count= 0;
+  ngOnInit(): void {
+    this.loadUserFromSession()
+  }
+
+
+  loadUserFromSession() : User {
+    let localUser = localStorage.getItem("user");
+    if (localUser != "undefined") {
+      return (JSON.parse(localUser) as User);
+    } else {
+      return new User("", "");
+    }
+  }
+
+  isLoggedIn(path : string) : boolean {
+    let localUser = this.loadUserFromSession();
+    //console.log(JSON.stringify(localUser.email));
+    if (this.app.user?.email == localUser.email && localUser?.email != "") {
+      return true;
+    }
+    else if (this.checkCredentials(localUser)) {
+      //console.log(JSON.stringify(this.app.user))
+      //console.log(JSON.stringify(localUser))
+      this.login(localUser, path);
+      return true;
+    } else if (localUser?.email == "") {
+      console.log("Setting user to new User")
+      this.app.user = localUser;
+      return false;
+    }
+    else {
+      this.logout();
+      return false;
+    }
+  }
+
+  authenticate(signInData: User): boolean {
+    console.log(signInData)
+    if(this.checkCredentials(signInData)) {
+      if(this.loginAttempt <= 2) {
+        this.login(signInData);
+        console.log("Tryed to login")
         return true;
       }
       else {
         this.app.loginFailed = "You are blocked";
-        console.log(this.app.loginFailed);
-        //alert("You are bloked");
         return false;
       }
 
     }
-    else{
-      if (this.count < 2) {
-        this.isAuthenticated = false;
+    else {
+      if (this.loginAttempt < 2) {
         this.app.loginFailed = "This E-mail / Username or Password is incorrect";
-        console.log(this.app.loginFailed);
-        //alert("this E-mail, Username or Password is incorrect");
-        this.count++
+        this.loginAttempt++
         return false;
       }
       else {
-        this.app.loginFailed = "You are bloked for 2 min";
+        this.app.loginFailed = "You are blocked for 2 min";
         console.log(this.app.loginFailed);
-        this.count++
-        setTimeout(()=>{                           // <<<---using ()=> syntax
-          this.count = 0;
+        this.loginAttempt++
+        setTimeout(() => {                           // <<<---using ()=> syntax
+          this.loginAttempt = 0;
         }, 120000);
-        //alert("you are blocked");
         return false;
       }
     }
   }
-  private checkCredentials (signInData : User): boolean{
-    return this.checkEmail(signInData.getEmail()) && this.checkPassword(signInData.getPassword());
+  private checkCredentials (signInData : User): boolean {
+    return (this.checkEmail(signInData.email) && this.checkPassword(signInData.password));
   }
-  private checkEmail(email: string): boolean{
-    return email === this.mockeUser.getEmail();
+  private checkEmail(email: string): boolean {
+    return email === this.mockUser.getEmail();
   }
-  private checkPassword(password: string): boolean{
-    return password === this.mockeUser.getPassword();
+  private checkPassword(password: string): boolean {
+    return password === this.mockUser.getPassword();
   }
-  logout(){
-    this.isAuthenticated = false;
+
+  logout() {
+    localStorage.setItem("user", "undefined")
     this.router.navigate(['']);
   }
 
-  login (user: User) {
-    if (this.isAuthenticated == true) {
-
+  login (user: User, path : string = undefined) {
+    this.loginAttempt = 0;
     const headers: HttpHeaders = new HttpHeaders(
     ).append("Content-Type", "application/x-www-form-urlencoded");
 
     const body = `grant_type=password&client_id=employee-management-service&username=${user.email}&password=${user.password}`;
     this.http.post<BearerToken>(this.authUrl, body.toString(), {headers})
       .pipe(tap({
-          next: (x) => console.log(`Loaded BearerToken .. ${x.access_token}`),
+          next: (x) => console.log(`Loaded BearerToken .. ${x.access_token.substring(0, 5)}`),
         }),
       ).subscribe(data => {
+      user.bearerToken = data;
+      this.app.user = user;
       this.bearerService.bearer = data;
-      this.router.navigate(['employee'])
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log("Saved user to session");
+      if (path == undefined) {
+        console.log("Navigated to Employee")
+        this.router.navigate(["employee"])
+
+      } else if (path != undefined && this.router.url != "/" + path) {
+        this.router.navigate([path]);
+        console.log(this.router.url)
+      }
     });
-  }
   }
 }

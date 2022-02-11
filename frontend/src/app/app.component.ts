@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import { Console } from 'console';
 import { User } from './model/User';
+import { AuthenticationService } from './service/authentication/authentication.service';
 import { BearerTokenHolderService } from './service/bearer-token/bearer-token-holder.service';
 
 @Component({
@@ -19,5 +21,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    console.log("Reinitializing AppComponent");
   }
 }

@@ -50,9 +50,11 @@ export class LoginViewComponent implements OnInit {
     console.log(signInForm.value);
     const signInData = new User(signInForm.value.email, signInForm.value.password);
     this.authenticationService.authenticate(signInData);
-    this.authenticationService.login(signInData);
-    this.app.user = signInData;
 
+  }
+
+  isAuth(): boolean{
+    return this.authenticationService.isLoggedIn("qualification/new");
   }
 
 }

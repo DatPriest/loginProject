@@ -10,10 +10,14 @@ import {AppComponent} from "../../app.component";
 })
 export class HeaderViewComponent implements OnInit {
 
-  constructor(private authentifcationservice: AuthenticationService, public router: Router, public app: AppComponent) {}
+  constructor(private authenticationService: AuthenticationService, public router: Router, public app: AppComponent) {}
 
   logout(){
-    this.authentifcationservice.logout();
+    this.authenticationService.logout();
+  }
+
+  isAuth(): boolean{
+    return this.authenticationService.isLoggedIn("qualification/new");
   }
 
   ngOnInit(): void {

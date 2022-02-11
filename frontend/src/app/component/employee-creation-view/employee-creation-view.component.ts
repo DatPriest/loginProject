@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import { EmployeeService } from 'src/app/service/employee/employee.service';
 import {Employee} from "../../model/Employee";
 import {AppComponent} from "../../app.component";
+import { QualificationSelectionComponent } from '../qualification-selection/qualification-selection.component';
+import { QualificationService } from 'src/app/service/qualification/qualification.service';
 
 @Component({
   selector: 'app-employee-creation-view',
@@ -18,35 +20,39 @@ export class EmployeeCreationViewComponent {
   city: string;
   phone: string;
   constructor(
-    private authentifcationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private router: Router,
     private employeeService: EmployeeService,
-    private app : AppComponent) {
+    private app : AppComponent,
+    private qualificationSelection : QualificationSelectionComponent,
+    private qualificationService : QualificationService
+    ) {
       this.app.header = 1;
      }
 
   isAuth(): boolean{
-    return this.authentifcationService.isAuthenticated;
+    return this.authenticationService.isLoggedIn("employee/new");
   }
 
   logout() {
-    this.authentifcationService.logout();
+    this.authenticationService.logout();
   }
   addEmployee() {
-    this.employeeService.postEmployees(
-      new Employee(0,
+    this.employeeService.postEmployee(
+      new Employee(
+        0,
         this.lastname,
         this.firstname,
         this.street,
         this.postcode,
         this.city,
         this.phone)
-      );
+      ).subscribe(data => console.log(data))
       this.employeeService.getEmployees().subscribe(_ => {
         this.router.navigate(['employee']);
       })
   }
-  cancelNewEmployyView() {
+  cancelNewEmployeeView() {
     setTimeout(()=>{
       this.router.navigate(['employee']);
     }, 1000);
@@ -54,6 +60,7 @@ export class EmployeeCreationViewComponent {
 
 
   ngOnInit(): void {
+      this.qualificationSelection.qualificationSet = this.qualificationService.getQualifications()
 
   }
 
