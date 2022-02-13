@@ -40,10 +40,7 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   loadEmployees() {
-    //this.employeeService.postEmployees(new Employee(6,'aboush','haneef','wilhel','27753','del','32432'));
     this.employees$ = this.employeeService.getEmployees();
-     //this.employees.forEach(value => this.employeeService.getEmployees());
-
   }
 
   isAuth(): boolean{
@@ -51,8 +48,10 @@ export class EmployeeViewComponent implements OnInit {
   }
 
   deleteEmployee(id:number): void {
+    if (confirm(`Are you sure to delete this Employee with id ${id}?`))
     this.employeeService.deleteEmployee(id).subscribe(eData => {
       console.log(`Employee got deleted: \n id: ${eData.id} \n name: ${eData.lastName}`)
+      this.router.navigate(['employee'])
     });
 
     setTimeout(()=>{
@@ -62,8 +61,8 @@ export class EmployeeViewComponent implements OnInit {
 
   detailEmployee(id: number): void {
     this.employeeService.getEmployeeById(id).subscribe(data => this.router.navigate(['employee/detail', data]));
-    //this.router.navigate(['employee']);
   }
+
   addEmployee() {
     this.router.navigate(['employee/new']);
   }
