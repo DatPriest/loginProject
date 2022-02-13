@@ -13,10 +13,10 @@ export class QualificationFilterPipe implements PipeTransform {
     var match="^[0-9]";
     console.log("trying to match")
     if (searchTerm.match(match)){
-      return qualifications.filter(qualification => qualification.index.toFixed().indexOf(searchTerm.toLowerCase()) !== -1);
+      return qualifications.filter(selection => selection.index.toFixed().indexOf(searchTerm.toLowerCase()) !== -1);
 
     } else {
-      return qualifications.filter(qualification => qualification.qualification.designation.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+      return qualifications.filter(selection => selection.qualification.designation.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
     }
 
   }

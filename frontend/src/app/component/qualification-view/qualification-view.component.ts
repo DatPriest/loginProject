@@ -70,12 +70,6 @@ export class QualificationViewComponent implements OnInit {
   //}
 }
 
-
-class Selection {
-  constructor(public index : number, public qualification : Qualification, public checked : boolean) {}
-}
-
-
 class Selection {
 
   constructor(public index : number, public qualification : Qualification, public checked : boolean) {}
