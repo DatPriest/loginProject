@@ -8,13 +8,19 @@
         <div class="col-md-4 col-md-2">
           <div class="p-5">
             <div class="container-fluid">
-              <p><font size="6">Designation:</font></p>
+              <p>
+                <font size="6">Designation:</font>
+              </p>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-md-2">
           <div class="p-5">
-              <p><font size="6">{{qualification.designation}}</font></p>
+            <div class="form-floating mb-3">
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" readonly value={{qualification.designation}}>
+              </div>
+            </div>
           </div>
         </div>
           <div class="p-5">
@@ -29,9 +35,9 @@
               <tbody>
                 <ng-container *ngFor="let e of employees | async">
                   <tr>
-                    <td>E1</td>
-                    <td>Bullwinkel</td>
-                    <td>Lukas</td>
+                    <td>{{e.id}}</td>
+                    <td>{{e.lastName}}</td>
+                    <td>{{e.firstName}}</td>
                   </tr>
                 </ng-container>
               </tbody>

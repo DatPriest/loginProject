@@ -16,11 +16,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class EmployeeDetailViewComponent implements OnInit {
 
-  count = 0;
-  lastname = false;
-  firstname = false;
   employee : Employee;
-  editEmployee$ : Employee | undefined;
+  editView : boolean = false;
   employeeQualificationSkillset : Observable<Qualification[]> = of();
   qualificationSet : Observable<Qualification[]> = of([]);
   constructor(
@@ -37,24 +34,21 @@ export class EmployeeDetailViewComponent implements OnInit {
     return this.authenticationService.isLoggedIn("employee/detail");
   }
 
-  editLastNameEmployee(): void {
-     this.lastname = true;
-  }
-  toEditLastNameEmployee(): boolean {
-    if (this.firstname == true) {
-      this.firstname = false;
+  toEditEmployee(): void {
+    if (this.editView == true) {
+      this.editView = false;
+    } else {
+      this.editView = true;
     }
-    return this.lastname;
   }
 
-  editFirstNameEmployee(): void {
-    this.firstname = true;
+  editEmployee(): boolean {
+    return this.editView;
   }
-  toEditFirstNameEmployee(): boolean {
-    if (this.lastname == true) {
-      this.lastname = false;
-    }
-    return this.firstname;
+
+  saveEmployee(employee: Employee): void {
+    this.employeeService.postEmployee(employee);
+    this.router.navigate(['employee']);
   }
 
   deleteEmployee(): void {
@@ -70,9 +64,6 @@ export class EmployeeDetailViewComponent implements OnInit {
     this.route.params.subscribe(data =>  {
       console.log();
       this.employee = data as Employee;
-      //this.employeeService.getQualificationToEmployeeId(this.employee.id).subscribe(employee => {
-      //  this.employeeQualificationSkillset = of(employee.skillSet);
-     // })
     });
   }
 }

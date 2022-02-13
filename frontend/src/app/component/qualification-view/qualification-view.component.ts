@@ -56,6 +56,23 @@ export class QualificationViewComponent implements OnInit {
     this.router.navigate(['qualification/detail', qualification]);
   }
 
+  deleteQualification(designation : string) {
+    this.qualificationService.deleteQualification(designation);
+    this.router.navigate(['qualification/detail']);
+  }
+  //deleteQualification() {
+  //  console.log(`Deleting qualification: ${this.qualification.designation}`)
+  //  if (confirm(`Are you sure to delete this Qualification with name ${this.qualification.designation}?`))
+  //    this.qualificationService.deleteQualification(this.qualification.designation).subscribe(qData => {
+  //      console.log(`Deleted Qualification with designation: ${qData.designation}`);
+  //      this.router.navigate(['qualifications'])
+  //    });
+  //}
+}
+
+
+class Selection {
+  constructor(public index : number, public qualification : Qualification, public checked : boolean) {}
 }
 
 
